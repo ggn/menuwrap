@@ -1,0 +1,27 @@
+﻿<form class="form-inline">
+    <li>
+        <select required>
+            <option value="">Select City</option>
+            <option ng-repeat="city in cities" value="{{city.ID}}">{{city.Name}}</option>
+        </select>
+        <a class="name visible-lg" ></a>
+    </li>
+    <li>
+        <select required>
+            <option value="">Select Location</option>
+            <option ng-repeat="location in locations" value="{{location.ID}}">{{location.Name}}</option>
+        </select>
+        <a class="mail visible-lg" href="#"></a>
+    </li>
+    <li>
+        <select required>
+            <option value="">Select Category</option>
+            <option ng-repeat="category in categories" value="{{category.ID}}">{{category.Name}}</option>
+        </select>
+        <a class="num visible-lg" href=" #"></a>
+    </li>
+    <input type="submit" class="btn btn-lg" value="Go" />
+</form>
+<script>
+    new WOW().init();
+</script>

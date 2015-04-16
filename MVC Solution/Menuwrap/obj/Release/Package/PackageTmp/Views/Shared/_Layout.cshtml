@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Menu Wrap</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="shortcut icon" type="image/png" href="~/Content/images/favicon.ico" />
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+                <img class="navbar-brand" src="~/Content/images/viewlogo.png" alt="MENU WRAP" style="width:100px;height:70px;" />
+            </div>
+            <div class="text-right">
+                <form id="SearchFoodCat">
+                    <ul class="nav navbar-nav navbar-brand pull-right">
+                        <li>
+                            <div class="inner-addon left-addon">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                                @{
+                                    SelectList temp = ViewBag.cities; //Value should not be null
+                                }
+                                @Html.DropDownList("category_Id", temp, "Select Cities", new { id = "citiesDdl", @class = "form-control-custom menu-input", required = "" })
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="inner-addon left-addon">
+                                <i class="glyphicon glyphicon-map-marker"></i>
+                                @*<input id="location" class="form-control-custom" type="text" value="" name="location_Id" placeholder="Enter your Location" required />*@
+                                <select disabled="disabled" name="location_Id" class="form-control-custom menu-input" id="locationDdl">
+                                    <option value="">Select Location</option>
+                                </select>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="inner-addon left-addon">
+                                <i class="glyphicon glyphicon-cutlery"></i>
+                                @{
+                                    temp = ViewBag.categories; //Value should not be null
+                                }
+                                @Html.DropDownList("category_Id", temp, "Select Category", new { id = "foodCategory", @class = "form-control-custom menu-input" })
+
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li> &nbsp; <input type="submit" value="GO" class="btn btn-warning form-control-custom" id="SearchSubmit" /></li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-div">
+        <div class="margin-top"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 render-body">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <div class="margin-bottom"></div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="gaprow"></div>
+            <div class="row">
+                <div class="col-md-4 fotter-left">
+                    <h3>Menu Wrap</h3>
+                    <p>
+                        asdadsas asd asd das asd asd adfsdf adsg adsg adsg asdgasdg sdg asdg asgd
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Latest News</h3>
+                    <div class="footer-list">
+                        <ul>
+                            <li><a href="#"><span></span>Sed ut perspiciatis unde omnis iste natus.</a></li>
+                            <li><a href="#"><span></span>Voluptatem accusantium.</a></li>
+                            <li><a href="#"><span></span>Totam rem aperiam,eaque ipsa quae.</a></li>
+                            <li><a href="#"><span></span>Inventore veritatis et quae.</a></li>
+                            <li><a href="#"><span></span>Nemo enim ipsum voluptatem quia voluptas.</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 text-right">
+                    <h3>Newsletter</h3>
+                    <form>
+                        <input id="emailid" type="text" class="text" placeholder="Enter your Email">
+                        <input type="submit" onclick="if ($.trim($('#emailid').val())!=''){ alert('Sending mail to ' + $('#emailid').val()); }" value="Send">
+                        <div class="clearfix"></div>
+                    </form>
+                    <div class="social-icons">
+                        <a href="#"><span class="icon-facebook"> </span></a>
+                        <a href="#"><span class="icon-twitter"> </span></a>
+                        <a href="#"><span class=" icon-google-plus"> </span></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="gaprow"></div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p class="pull-right"><a href="#">Back to top</a></p>
+                    <p>copyright &copy; 2015 - 2016 Menu wrap, Inc.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <input type="hidden" id="locationURL" value="@Url.Action("SearchLocation", "Home")" />
+    <input type="hidden" id="foodCategoryURL" value="@Url.Action("foodCategory", "Home")" />
+</body>
+</html>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+<script type="text/javascript">
+    @*var clicked = false;
+    var changed = false;
+    $("#cities").hover(function () {
+        if (!clicked) {
+            $("#cities").tokenInput("@Url.Action("SearchCity","Home")",
+        {
+            tokenLimit: 1,
+            minChars: 2,
+            searchDelay: 200,
+            hintText: "Enter city",
+        });
+            clicked = true;
+        }
+    });
+
+
+
+    $("#location").hover(function () {
+        var city = $('#cities').val();
+        if (!changed && city) {
+            var locationURL = $('#locationURL').val() + "?cityID=" + city;
+            $("#location").tokenInput(locationURL,
+            {
+                tokenLimit: 1,
+                minChars: 2,
+                searchDelay: 200,
+                hintText: "Enter Location",
+                queryParam: "areaID",
+            });
+            changed = true;
+        }
+    });*@
+
+    $('#SearchSubmit').click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: "@Url.Action("SearchFood","Home")",
+            data: $('#SearchFoodCat').serialize(),
+            type: "POST"
+        }).success(function (data) {
+            $('#SearchResult').html(data);
+        }).error();
+    });
+    //$(".multiselect").multiselect();
+    $('#citiesDdl').change(function () {
+        var selectedCity = $.trim($(this).val());
+        if (selectedCity != "") {
+            $('#locationDdl').html("<option value=''>Select Location</option>")
+            $.ajax({
+                url: $('#locationURL').val(),
+                data: { cityId: selectedCity },
+                type: "POST"
+            }).success(function (data) {
+                if (data) {
+                    $.each(JSON.parse(data), function (i, item) {
+                        $('#locationDdl').append("<option value='" + item.id + "'>" + item.name + "</option>")
+                        $('#locationDdl').removeAttr('disabled');
+                    });
+                }
+           }).error(function () {
+                alert("Some Error Occured");
+            });
+        } else {
+            $('#locationDdl').val('').attr('disabled', 'disabled');
+        }
+    });
+</script>

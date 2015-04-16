@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MenuwrapModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="Cat_food_map">
+      <EntityTypeMapping TypeName="MenuwrapModel.Cat_food_map">
+        <MappingFragment StoreEntitySet="Cat_food_map">
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="cat_food_mid" ColumnName="cat_food_mid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="MenuwrapModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="Isactive" ColumnName="Isactive" />
+          <ScalarProperty Name="Category_name" ColumnName="Category_name" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="MenuwrapModel.City">
+        <MappingFragment StoreEntitySet="Cities">
+          <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+          <ScalarProperty Name="City_name" ColumnName="City_name" />
+          <ScalarProperty Name="City_Id" ColumnName="City_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comments">
+      <EntityTypeMapping TypeName="MenuwrapModel.comment">
+        <MappingFragment StoreEntitySet="comments">
+          <ScalarProperty Name="Isactive" ColumnName="Isactive" />
+          <ScalarProperty Name="Res_food_mId" ColumnName="Res_food_mId" />
+          <ScalarProperty Name="Resturant_Id" ColumnName="Resturant_Id" />
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment1" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Comment_Id" ColumnName="Comment_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cuisines">
+      <EntityTypeMapping TypeName="MenuwrapModel.cuisine">
+        <MappingFragment StoreEntitySet="cuisines">
+          <ScalarProperty Name="parent" ColumnName="parent" />
+          <ScalarProperty Name="Cuisine_level" ColumnName="Cuisine_level" />
+          <ScalarProperty Name="cuisine_name" ColumnName="cuisine_name" />
+          <ScalarProperty Name="Cuisine_Id" ColumnName="Cuisine_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filter_cat_map">
+      <EntityTypeMapping TypeName="MenuwrapModel.Filter_cat_map">
+        <MappingFragment StoreEntitySet="Filter_cat_map">
+          <ScalarProperty Name="category_Id" ColumnName="category_Id" />
+          <ScalarProperty Name="Filter_Id" ColumnName="Filter_Id" />
+          <ScalarProperty Name="Filter_cat_map_id" ColumnName="Filter_cat_map_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filters">
+      <EntityTypeMapping TypeName="MenuwrapModel.Filter">
+        <MappingFragment StoreEntitySet="Filters">
+          <ScalarProperty Name="Filter_desc" ColumnName="Filter_desc" />
+          <ScalarProperty Name="Filter_name" ColumnName="Filter_name" />
+          <ScalarProperty Name="Filter_Id" ColumnName="Filter_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodItems">
+      <EntityTypeMapping TypeName="MenuwrapModel.FoodItem">
+        <MappingFragment StoreEntitySet="FoodItems">
+          <ScalarProperty Name="isVeg" ColumnName="isVeg" />
+          <ScalarProperty Name="Is_street" ColumnName="Is_street" />
+          <ScalarProperty Name="No_time_sold" ColumnName="No_time_sold" />
+          <ScalarProperty Name="Cusine_Id" ColumnName="Cusine_Id" />
+          <ScalarProperty Name="Item_name" ColumnName="Item_name" />
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="MenuwrapModel.Location">
+        <MappingFragment StoreEntitySet="Locations">
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="city_Id" ColumnName="city_Id" />
+          <ScalarProperty Name="Location_name" ColumnName="Location_name" />
+          <ScalarProperty Name="Location_Id" ColumnName="Location_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="MenuwrapModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Delivery_DT" ColumnName="Delivery_DT" />
+          <ScalarProperty Name="Is_delivered" ColumnName="Is_delivered" />
+          <ScalarProperty Name="Order_DT" ColumnName="Order_DT" />
+          <ScalarProperty Name="Res_food_mId" ColumnName="Res_food_mId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Res_food_map">
+      <EntityTypeMapping TypeName="MenuwrapModel.Res_food_map">
+        <MappingFragment StoreEntitySet="Res_food_map">
+          <ScalarProperty Name="No_time_Sold" ColumnName="No_time_Sold" />
+          <ScalarProperty Name="Avail_to" ColumnName="Avail_to" />
+          <ScalarProperty Name="Avail_From" ColumnName="Avail_From" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Item_Id" ColumnName="Item_Id" />
+          <ScalarProperty Name="Resturant_Id" ColumnName="Resturant_Id" />
+          <ScalarProperty Name="Res_food_mId" ColumnName="Res_food_mId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Restaurants">
+      <EntityTypeMapping TypeName="MenuwrapModel.Restaurant">
+        <MappingFragment StoreEntitySet="Restaurants">
+          <ScalarProperty Name="Is_active" ColumnName="Is_active" />
+          <ScalarProperty Name="Rest_mailId" ColumnName="Rest_mailId" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="Location_Id" ColumnName="Location_Id" />
+          <ScalarProperty Name="Rest_addr" ColumnName="Rest_addr" />
+          <ScalarProperty Name="Rest_Desc" ColumnName="Rest_Desc" />
+          <ScalarProperty Name="Restaurant_name" ColumnName="Restaurant_name" />
+          <ScalarProperty Name="Resturant_Id" ColumnName="Resturant_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="MenuwrapModel.Role">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Isactive" ColumnName="Isactive" />
+          <ScalarProperty Name="Rolename" ColumnName="Rolename" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="States">
+      <EntityTypeMapping TypeName="MenuwrapModel.State">
+        <MappingFragment StoreEntitySet="States">
+          <ScalarProperty Name="State_name" ColumnName="State_name" />
+          <ScalarProperty Name="State_Id" ColumnName="State_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="MenuwrapModel.user">
+        <MappingFragment StoreEntitySet="users">
+          <ScalarProperty Name="Isactive" ColumnName="Isactive" />
+          <ScalarProperty Name="Zipcode" ColumnName="Zipcode" />
+          <ScalarProperty Name="addr" ColumnName="addr" />
+          <ScalarProperty Name="Role_Id" ColumnName="Role_Id" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Email_Id" ColumnName="Email_Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

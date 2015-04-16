@@ -1,0 +1,54 @@
+﻿@model List<DataAccessLayer.SearchResult>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="margin-top">&nbsp;</div>
+<div class="margin-top">&nbsp;</div>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div>
+                        <DIV class="menu-heading">@Model.FirstOrDefault().RestaurantName</DIV>
+                        <div><b>@Model.FirstOrDefault().RestDesc</b></div>
+                        <div>@Model.FirstOrDefault().Landmark</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="text-center"> <h3>Menu</h3> </div>
+                    </div>
+                </div>
+                <div class="row" style="padding:10px;">
+                    <div class="col-xs-4">
+                        <img src="~/Content/images/images.png" style="border:1px solid black" />
+                    </div>
+                    <div class="col-xs-8">
+                        <table class="table table-condensed text-center">
+                            <tr>
+                                <th class=" text-center">
+                                    Item
+                                </th>
+                                <th class=" text-center">
+                                    Cost
+                                </th>
+                            </tr>
+                            @foreach (var result in Model)
+                            {
+                                <tr>
+                                    <td><b> @result.FoodName </b></td>
+                                    <td>@result.Price</td>
+                                </tr>
+
+                            }
+                        </table>
+                    </div>
+                </div>
+                <div class="gap-row"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="margin-bottom"></div>

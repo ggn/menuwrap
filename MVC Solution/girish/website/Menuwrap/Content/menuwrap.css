@@ -1,0 +1,62 @@
+.navbar-custom {
+    background-color: #412a62;
+    opacity: .5;
+    -webkit-transition: all .4s linear;
+    -moz-transition: all .4s linear;
+    -o-transition: all .4s linear;
+    -ms-transition: all .4s linear;
+    transition: all .4s linear;
+    height: 70px;
+    width: 100%;
+    background-image: -webkit-linear-gradient("right",rgba(0,0,0,0),rgba(0,0,0,.3));
+    background-image: -moz-linear-gradient("right",rgba(0,0,0,0),rgba(0,0,0,.3));
+    background-image: -o-linear-gradient("right",rgba(0,0,0,0),rgba(0,0,0,.3));
+    background-image: -ms-linear-gradient("right",rgba(0,0,0,0),rgba(0,0,0,.3));
+    background-image: linear-gradient("right",rgba(0,0,0,0),rgba(0,0,0,.3));
+}
+
+    .navbar-custom:hover {
+        opacity: 1;
+    }
+
+    .navbar-custom input {
+        padding: 5px;
+    }
+
+.form-control-custom {
+    -webkit-border-radius: "0px" !important;
+    -moz-border-radius: "0px" !important;
+    border-radius: "0px" !important;
+    height: 30px;
+    width:200px;
+}
+
+.main-div, body, html {
+    height: 100%;
+    color: #3e3e42;
+}
+
+.footer {
+    color: #90c5a8;
+}
+
+li.token-input-token,ul.token-input-list li input {
+    height: 30px !important;
+    width:200px !important;
+}
+
+.margin-top {
+    margin-top:25px
+}
+
+.margin-bottom {
+    margin-bottom:25px
+}
+
+.render-body {
+    overflow:auto;
+}
+
+.gap-row {
+    padding:10px;
+}

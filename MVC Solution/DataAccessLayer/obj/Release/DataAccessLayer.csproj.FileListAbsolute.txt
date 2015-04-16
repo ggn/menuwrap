@@ -1,0 +1,9 @@
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\bin\Release\DataAccessLayer.dll.config
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\bin\Release\DataAccessLayer.dll
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\bin\Release\DataAccessLayer.pdb
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\bin\Release\EntityFramework.dll
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\bin\Release\EntityFramework.SqlServer.dll
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\bin\Release\EntityFramework.xml
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\bin\Release\EntityFramework.SqlServer.xml
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\obj\Release\DataAccessLayer.dll
+C:\software\Asp_Project\Menuwrap\DataAccessLayer\obj\Release\DataAccessLayer.pdb

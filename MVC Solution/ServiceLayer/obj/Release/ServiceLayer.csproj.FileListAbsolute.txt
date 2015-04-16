@@ -1,0 +1,11 @@
+C:\software\Asp_Project\Menuwrap\ServiceLayer\bin\Release\ServiceLayer.dll
+C:\software\Asp_Project\Menuwrap\ServiceLayer\bin\Release\ServiceLayer.pdb
+C:\software\Asp_Project\Menuwrap\ServiceLayer\bin\Release\DataAccessLayer.dll
+C:\software\Asp_Project\Menuwrap\ServiceLayer\bin\Release\Repository.dll
+C:\software\Asp_Project\Menuwrap\ServiceLayer\bin\Release\EntityFramework.dll
+C:\software\Asp_Project\Menuwrap\ServiceLayer\bin\Release\DataAccessLayer.pdb
+C:\software\Asp_Project\Menuwrap\ServiceLayer\bin\Release\Repository.pdb
+C:\software\Asp_Project\Menuwrap\ServiceLayer\bin\Release\EntityFramework.xml
+C:\software\Asp_Project\Menuwrap\ServiceLayer\obj\Release\ServiceLayer.csprojResolveAssemblyReference.cache
+C:\software\Asp_Project\Menuwrap\ServiceLayer\obj\Release\ServiceLayer.dll
+C:\software\Asp_Project\Menuwrap\ServiceLayer\obj\Release\ServiceLayer.pdb

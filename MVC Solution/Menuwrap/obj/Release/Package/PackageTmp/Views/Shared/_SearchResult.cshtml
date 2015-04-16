@@ -1,0 +1,50 @@
+﻿@model List<DataAccessLayer.SearchResult>
+
+
+
+<div class="row">
+    <div class="col-xs-2">
+        <aside class="filter">
+            <h4>Select Filters</h4>
+            <div class="filter-content">
+                <div class="subtitle">Type</div>
+                <ul>
+                    <li>
+                        <input type="checkbox" id="veg" name="veg">
+                        <label for="veg">Veg</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="non-veg" name="non-veg">
+                        <label for="veg">Non-Veg</label>
+                    </li>
+                </ul>
+                <div class="subtitle">Cost</div>
+                <input type="range" min="100" max="1000" />
+                <div class="subtitle">Restraunt</div>
+                @foreach (var restraunt in Model.Select(x => new { RestaurantName = x.RestaurantName, RestaurantId = x.RestaurantId }).Distinct())
+                {
+                    <input type="checkbox" value="@restraunt.RestaurantId" /> @restraunt.RestaurantName <br />
+                }
+            </div>
+        </aside>
+    </div>
+
+    <div class="col-xs-10">
+        @foreach (var result in Model)
+        {
+            <div class="gap-row"></div>
+            <div class="row">
+                <div class="col-xs-2">
+                    <div style="width:100px;height:100px;background-color:blue">Restraunt IMAGE</div>
+                </div>
+                <div class="col-xs-8">
+                    <h5>@Html.ActionLink(@result.RestaurantName, "Index", "RestuarntInfo", new { restID = result.RestaurantId,catId = result.CategoryId },null)</h5>
+                    <h4><b> @result.FoodName </b></h4>
+                    <b>COST:</b> <i>@result.Price</i>
+                </div>
+                <div class="col-xs-2"><div style="width:100px;height:100px;background-color:green">Food IMAGE</div></div>
+            </div>
+        }
+    </div>
+
+</div>

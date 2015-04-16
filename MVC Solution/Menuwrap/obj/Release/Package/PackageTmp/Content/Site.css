@@ -1,0 +1,75 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+
+
+.jumbotron {
+padding-bottom: 0px !important;
+padding-top : 10px !important;
+}
+
+.carousel-indicators {
+    position: relative !important;
+}
+
+
+.no-padding {
+    padding:0px !important;
+}
+
+.no-left-padding {
+    padding-left:0px !important;
+}
+
+.no-right-padding {
+    padding-right:0px !important;
+}
+
+.token-input-list {
+    width:100% !important;
+}
+
+.vendor-list {
+   border-bottom-style:solid;
+   border:2px solid;
+   background-color:#808080;
+}
+
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding:5px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  20px; }
+.right-addon input { padding-right: 30px; }
+
+
+.menu-input {
+    padding-left:25px;
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1a7061a187c54606bd49b846f580ad90" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="MenuwrapModel.Cat_food_map" Width="1.5" PointX="12" PointY="8.875" />
+        <EntityTypeShape EntityType="MenuwrapModel.Category" Width="1.5" PointX="9.75" PointY="10.875" />
+        <EntityTypeShape EntityType="MenuwrapModel.City" Width="1.5" PointX="3" PointY="5.25" />
+        <EntityTypeShape EntityType="MenuwrapModel.comment" Width="1.5" PointX="9.75" PointY="4.625" />
+        <EntityTypeShape EntityType="MenuwrapModel.cuisine" Width="1.5" PointX="5.25" PointY="2" />
+        <EntityTypeShape EntityType="MenuwrapModel.Filter_cat_map" Width="1.5" PointX="12" PointY="11.875" />
+        <EntityTypeShape EntityType="MenuwrapModel.Filter" Width="1.5" PointX="9.75" PointY="14" />
+        <EntityTypeShape EntityType="MenuwrapModel.FoodItem" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="MenuwrapModel.Location" Width="1.5" PointX="5.25" PointY="5.125" />
+        <EntityTypeShape EntityType="MenuwrapModel.Order" Width="1.5" PointX="15" PointY="5" />
+        <EntityTypeShape EntityType="MenuwrapModel.Res_food_map" Width="1.5" PointX="12.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MenuwrapModel.Restaurant" Width="1.5" PointX="7.5" PointY="4.75" />
+        <EntityTypeShape EntityType="MenuwrapModel.Role" Width="1.5" PointX="5.25" PointY="10.25" />
+        <EntityTypeShape EntityType="MenuwrapModel.State" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="MenuwrapModel.user" Width="1.5" PointX="7.5" PointY="9.5" />
+        <AssociationConnector Association="MenuwrapModel.FK__Cat_food___Categ__10566F31" />
+        <AssociationConnector Association="MenuwrapModel.FK__Cat_food___Item___114A936A" />
+        <AssociationConnector Association="MenuwrapModel.FK__Filter_ca__categ__0C85DE4D" />
+        <AssociationConnector Association="MenuwrapModel.FK__City__State_Id__0E6E26BF" />
+        <AssociationConnector Association="MenuwrapModel.FK__Location__city_I__0F624AF8" />
+        <AssociationConnector Association="MenuwrapModel.FK__comment__Item_Id__17036CC0" />
+        <AssociationConnector Association="MenuwrapModel.FK__comment__Res_foo__17F790F9" />
+        <AssociationConnector Association="MenuwrapModel.FK__comment__Restura__18EBB532" />
+        <AssociationConnector Association="MenuwrapModel.FK__comment__UserId__19DFD96B" />
+        <AssociationConnector Association="MenuwrapModel.FK__FoodItem__Cusine__0B91BA14" />
+        <AssociationConnector Association="MenuwrapModel.FK__Filter_ca__Filte__0D7A0286" />
+        <AssociationConnector Association="MenuwrapModel.FK__Res_food___Item___1332DBDC" />
+        <AssociationConnector Association="MenuwrapModel.FK__Restauran__Locat__123EB7A3" />
+        <AssociationConnector Association="MenuwrapModel.FK__Order__Res_food___151B244E" />
+        <AssociationConnector Association="MenuwrapModel.FK__Order__UserId__160F4887" />
+        <AssociationConnector Association="MenuwrapModel.FK__Res_food___Restu__14270015" />
+        <AssociationConnector Association="MenuwrapModel.FK__user__Role_Id__0A9D95DB" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

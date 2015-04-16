@@ -1,0 +1,473 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MenuwrapModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cat_food_map" EntityType="MenuwrapModel.Cat_food_map" />
+    <EntitySet Name="Categories" EntityType="MenuwrapModel.Category" />
+    <EntitySet Name="Cities" EntityType="MenuwrapModel.City" />
+    <EntitySet Name="comments" EntityType="MenuwrapModel.comment" />
+    <EntitySet Name="cuisines" EntityType="MenuwrapModel.cuisine" />
+    <EntitySet Name="Filter_cat_map" EntityType="MenuwrapModel.Filter_cat_map" />
+    <EntitySet Name="Filters" EntityType="MenuwrapModel.Filter" />
+    <EntitySet Name="FoodItems" EntityType="MenuwrapModel.FoodItem" />
+    <EntitySet Name="Locations" EntityType="MenuwrapModel.Location" />
+    <EntitySet Name="Orders" EntityType="MenuwrapModel.Order" />
+    <EntitySet Name="Res_food_map" EntityType="MenuwrapModel.Res_food_map" />
+    <EntitySet Name="Restaurants" EntityType="MenuwrapModel.Restaurant" />
+    <EntitySet Name="Roles" EntityType="MenuwrapModel.Role" />
+    <EntitySet Name="States" EntityType="MenuwrapModel.State" />
+    <EntitySet Name="users" EntityType="MenuwrapModel.user" />
+    <AssociationSet Name="FK__Cat_food___Categ__10566F31" Association="MenuwrapModel.FK__Cat_food___Categ__10566F31">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Cat_food_map" EntitySet="Cat_food_map" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cat_food___Item___114A936A" Association="MenuwrapModel.FK__Cat_food___Item___114A936A">
+      <End Role="FoodItem" EntitySet="FoodItems" />
+      <End Role="Cat_food_map" EntitySet="Cat_food_map" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Filter_ca__categ__0C85DE4D" Association="MenuwrapModel.FK__Filter_ca__categ__0C85DE4D">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Filter_cat_map" EntitySet="Filter_cat_map" />
+    </AssociationSet>
+    <AssociationSet Name="FK__City__State_Id__0E6E26BF" Association="MenuwrapModel.FK__City__State_Id__0E6E26BF">
+      <End Role="State" EntitySet="States" />
+      <End Role="City" EntitySet="Cities" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Location__city_I__0F624AF8" Association="MenuwrapModel.FK__Location__city_I__0F624AF8">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="Location" EntitySet="Locations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comment__Item_Id__17036CC0" Association="MenuwrapModel.FK__comment__Item_Id__17036CC0">
+      <End Role="FoodItem" EntitySet="FoodItems" />
+      <End Role="comment" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comment__Res_foo__17F790F9" Association="MenuwrapModel.FK__comment__Res_foo__17F790F9">
+      <End Role="Res_food_map" EntitySet="Res_food_map" />
+      <End Role="comment" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comment__Restura__18EBB532" Association="MenuwrapModel.FK__comment__Restura__18EBB532">
+      <End Role="Restaurant" EntitySet="Restaurants" />
+      <End Role="comment" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__comment__UserId__19DFD96B" Association="MenuwrapModel.FK__comment__UserId__19DFD96B">
+      <End Role="user" EntitySet="users" />
+      <End Role="comment" EntitySet="comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FoodItem__Cusine__0B91BA14" Association="MenuwrapModel.FK__FoodItem__Cusine__0B91BA14">
+      <End Role="cuisine" EntitySet="cuisines" />
+      <End Role="FoodItem" EntitySet="FoodItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Filter_ca__Filte__0D7A0286" Association="MenuwrapModel.FK__Filter_ca__Filte__0D7A0286">
+      <End Role="Filter" EntitySet="Filters" />
+      <End Role="Filter_cat_map" EntitySet="Filter_cat_map" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Res_food___Item___1332DBDC" Association="MenuwrapModel.FK__Res_food___Item___1332DBDC">
+      <End Role="FoodItem" EntitySet="FoodItems" />
+      <End Role="Res_food_map" EntitySet="Res_food_map" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Restauran__Locat__123EB7A3" Association="MenuwrapModel.FK__Restauran__Locat__123EB7A3">
+      <End Role="Location" EntitySet="Locations" />
+      <End Role="Restaurant" EntitySet="Restaurants" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__Res_food___151B244E" Association="MenuwrapModel.FK__Order__Res_food___151B244E">
+      <End Role="Res_food_map" EntitySet="Res_food_map" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Order__UserId__160F4887" Association="MenuwrapModel.FK__Order__UserId__160F4887">
+      <End Role="user" EntitySet="users" />
+      <End Role="Order" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Res_food___Restu__14270015" Association="MenuwrapModel.FK__Res_food___Restu__14270015">
+      <End Role="Restaurant" EntitySet="Restaurants" />
+      <End Role="Res_food_map" EntitySet="Res_food_map" />
+    </AssociationSet>
+    <AssociationSet Name="FK__user__Role_Id__0A9D95DB" Association="MenuwrapModel.FK__user__Role_Id__0A9D95DB">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="user" EntitySet="users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Cat_food_map">
+    <Key>
+      <PropertyRef Name="cat_food_mid" />
+    </Key>
+    <Property Name="cat_food_mid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_Id" Type="Int32" Nullable="false" />
+    <Property Name="Category_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="MenuwrapModel.FK__Cat_food___Categ__10566F31" FromRole="Cat_food_map" ToRole="Category" />
+    <NavigationProperty Name="FoodItem" Relationship="MenuwrapModel.FK__Cat_food___Item___114A936A" FromRole="Cat_food_map" ToRole="FoodItem" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Category_Id" />
+    </Key>
+    <Property Name="Category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Isactive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Cat_food_map" Relationship="MenuwrapModel.FK__Cat_food___Categ__10566F31" FromRole="Category" ToRole="Cat_food_map" />
+    <NavigationProperty Name="Filter_cat_map" Relationship="MenuwrapModel.FK__Filter_ca__categ__0C85DE4D" FromRole="Category" ToRole="Filter_cat_map" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="City_Id" />
+    </Key>
+    <Property Name="City_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="State" Relationship="MenuwrapModel.FK__City__State_Id__0E6E26BF" FromRole="City" ToRole="State" />
+    <NavigationProperty Name="Locations" Relationship="MenuwrapModel.FK__Location__city_I__0F624AF8" FromRole="City" ToRole="Location" />
+  </EntityType>
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="Comment_Id" />
+    </Key>
+    <Property Name="Comment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Comment1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Double" />
+    <Property Name="Item_Id" Type="Int32" />
+    <Property Name="Resturant_Id" Type="Int32" />
+    <Property Name="Res_food_mId" Type="Int32" />
+    <Property Name="Isactive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="FoodItem" Relationship="MenuwrapModel.FK__comment__Item_Id__17036CC0" FromRole="comment" ToRole="FoodItem" />
+    <NavigationProperty Name="Res_food_map" Relationship="MenuwrapModel.FK__comment__Res_foo__17F790F9" FromRole="comment" ToRole="Res_food_map" />
+    <NavigationProperty Name="Restaurant" Relationship="MenuwrapModel.FK__comment__Restura__18EBB532" FromRole="comment" ToRole="Restaurant" />
+    <NavigationProperty Name="user" Relationship="MenuwrapModel.FK__comment__UserId__19DFD96B" FromRole="comment" ToRole="user" />
+  </EntityType>
+  <EntityType Name="cuisine">
+    <Key>
+      <PropertyRef Name="Cuisine_Id" />
+    </Key>
+    <Property Name="Cuisine_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cuisine_name" Type="String" MaxLength="41" FixedLength="false" Unicode="false" />
+    <Property Name="Cuisine_level" Type="Int32" Nullable="false" />
+    <Property Name="parent" Type="Int32" />
+    <NavigationProperty Name="FoodItems" Relationship="MenuwrapModel.FK__FoodItem__Cusine__0B91BA14" FromRole="cuisine" ToRole="FoodItem" />
+  </EntityType>
+  <EntityType Name="Filter_cat_map">
+    <Key>
+      <PropertyRef Name="Filter_cat_map_id" />
+    </Key>
+    <Property Name="Filter_cat_map_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Filter_Id" Type="Int32" Nullable="false" />
+    <Property Name="category_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="MenuwrapModel.FK__Filter_ca__categ__0C85DE4D" FromRole="Filter_cat_map" ToRole="Category" />
+    <NavigationProperty Name="Filter" Relationship="MenuwrapModel.FK__Filter_ca__Filte__0D7A0286" FromRole="Filter_cat_map" ToRole="Filter" />
+  </EntityType>
+  <EntityType Name="Filter">
+    <Key>
+      <PropertyRef Name="Filter_Id" />
+    </Key>
+    <Property Name="Filter_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Filter_name" Type="String" Nullable="false" MaxLength="51" FixedLength="false" Unicode="false" />
+    <Property Name="Filter_desc" Type="String" MaxLength="101" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Filter_cat_map" Relationship="MenuwrapModel.FK__Filter_ca__Filte__0D7A0286" FromRole="Filter" ToRole="Filter_cat_map" />
+  </EntityType>
+  <EntityType Name="FoodItem">
+    <Key>
+      <PropertyRef Name="Item_Id" />
+    </Key>
+    <Property Name="Item_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Cusine_Id" Type="Int32" />
+    <Property Name="No_time_sold" Type="Int32" Nullable="false" />
+    <Property Name="Is_street" Type="Boolean" Nullable="false" />
+    <Property Name="isVeg" Type="Boolean" />
+    <NavigationProperty Name="Cat_food_map" Relationship="MenuwrapModel.FK__Cat_food___Item___114A936A" FromRole="FoodItem" ToRole="Cat_food_map" />
+    <NavigationProperty Name="comments" Relationship="MenuwrapModel.FK__comment__Item_Id__17036CC0" FromRole="FoodItem" ToRole="comment" />
+    <NavigationProperty Name="cuisine" Relationship="MenuwrapModel.FK__FoodItem__Cusine__0B91BA14" FromRole="FoodItem" ToRole="cuisine" />
+    <NavigationProperty Name="Res_food_map" Relationship="MenuwrapModel.FK__Res_food___Item___1332DBDC" FromRole="FoodItem" ToRole="Res_food_map" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Location_Id" />
+    </Key>
+    <Property Name="Location_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Location_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city_Id" Type="Int32" Nullable="false" />
+    <Property Name="Zipcode" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="MenuwrapModel.FK__Location__city_I__0F624AF8" FromRole="Location" ToRole="City" />
+    <NavigationProperty Name="Restaurants" Relationship="MenuwrapModel.FK__Restauran__Locat__123EB7A3" FromRole="Location" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="Order_Id" />
+    </Key>
+    <Property Name="Order_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Res_food_mId" Type="Int32" Nullable="false" />
+    <Property Name="Order_DT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Is_delivered" Type="Int32" Nullable="false" />
+    <Property Name="Delivery_DT" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Res_food_map" Relationship="MenuwrapModel.FK__Order__Res_food___151B244E" FromRole="Order" ToRole="Res_food_map" />
+    <NavigationProperty Name="user" Relationship="MenuwrapModel.FK__Order__UserId__160F4887" FromRole="Order" ToRole="user" />
+  </EntityType>
+  <EntityType Name="Res_food_map">
+    <Key>
+      <PropertyRef Name="Res_food_mId" />
+    </Key>
+    <Property Name="Res_food_mId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Resturant_Id" Type="Int32" Nullable="false" />
+    <Property Name="Item_Id" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Int32" Nullable="false" />
+    <Property Name="Avail_From" Type="Time" Precision="7" />
+    <Property Name="Avail_to" Type="Time" Precision="7" />
+    <Property Name="No_time_Sold" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="comments" Relationship="MenuwrapModel.FK__comment__Res_foo__17F790F9" FromRole="Res_food_map" ToRole="comment" />
+    <NavigationProperty Name="FoodItem" Relationship="MenuwrapModel.FK__Res_food___Item___1332DBDC" FromRole="Res_food_map" ToRole="FoodItem" />
+    <NavigationProperty Name="Orders" Relationship="MenuwrapModel.FK__Order__Res_food___151B244E" FromRole="Res_food_map" ToRole="Order" />
+    <NavigationProperty Name="Restaurant" Relationship="MenuwrapModel.FK__Res_food___Restu__14270015" FromRole="Res_food_map" ToRole="Restaurant" />
+  </EntityType>
+  <EntityType Name="Restaurant">
+    <Key>
+      <PropertyRef Name="Resturant_Id" />
+    </Key>
+    <Property Name="Resturant_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Restaurant_name" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="false" />
+    <Property Name="Rest_Desc" Type="String" MaxLength="501" FixedLength="false" Unicode="false" />
+    <Property Name="Rest_addr" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Location_Id" Type="Int32" Nullable="false" />
+    <Property Name="Zipcode" Type="Int32" Nullable="false" />
+    <Property Name="Rest_mailId" Type="String" MaxLength="61" FixedLength="false" Unicode="false" />
+    <Property Name="Is_active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="comments" Relationship="MenuwrapModel.FK__comment__Restura__18EBB532" FromRole="Restaurant" ToRole="comment" />
+    <NavigationProperty Name="Location" Relationship="MenuwrapModel.FK__Restauran__Locat__123EB7A3" FromRole="Restaurant" ToRole="Location" />
+    <NavigationProperty Name="Res_food_map" Relationship="MenuwrapModel.FK__Res_food___Restu__14270015" FromRole="Restaurant" ToRole="Res_food_map" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_Id" />
+    </Key>
+    <Property Name="Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rolename" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Isactive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="users" Relationship="MenuwrapModel.FK__user__Role_Id__0A9D95DB" FromRole="Role" ToRole="user" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="State_Id" />
+    </Key>
+    <Property Name="State_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="State_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cities" Relationship="MenuwrapModel.FK__City__State_Id__0E6E26BF" FromRole="State" ToRole="City" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email_Id" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Contact" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Role_Id" Type="Int32" Nullable="false" />
+    <Property Name="addr" Type="String" MaxLength="51" FixedLength="false" Unicode="false" />
+    <Property Name="Zipcode" Type="Int32" Nullable="false" />
+    <Property Name="Isactive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="comments" Relationship="MenuwrapModel.FK__comment__UserId__19DFD96B" FromRole="user" ToRole="comment" />
+    <NavigationProperty Name="Orders" Relationship="MenuwrapModel.FK__Order__UserId__160F4887" FromRole="user" ToRole="Order" />
+    <NavigationProperty Name="Role" Relationship="MenuwrapModel.FK__user__Role_Id__0A9D95DB" FromRole="user" ToRole="Role" />
+  </EntityType>
+  <Association Name="FK__Cat_food___Categ__10566F31">
+    <End Type="MenuwrapModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="MenuwrapModel.Cat_food_map" Role="Cat_food_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Category_Id" />
+      </Principal>
+      <Dependent Role="Cat_food_map">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cat_food___Item___114A936A">
+    <End Type="MenuwrapModel.FoodItem" Role="FoodItem" Multiplicity="1" />
+    <End Type="MenuwrapModel.Cat_food_map" Role="Cat_food_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodItem">
+        <PropertyRef Name="Item_Id" />
+      </Principal>
+      <Dependent Role="Cat_food_map">
+        <PropertyRef Name="Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Filter_ca__categ__0C85DE4D">
+    <End Type="MenuwrapModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="MenuwrapModel.Filter_cat_map" Role="Filter_cat_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Category_Id" />
+      </Principal>
+      <Dependent Role="Filter_cat_map">
+        <PropertyRef Name="category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__City__State_Id__0E6E26BF">
+    <End Type="MenuwrapModel.State" Role="State" Multiplicity="1" />
+    <End Type="MenuwrapModel.City" Role="City" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="State_Id" />
+      </Principal>
+      <Dependent Role="City">
+        <PropertyRef Name="State_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Location__city_I__0F624AF8">
+    <End Type="MenuwrapModel.City" Role="City" Multiplicity="1" />
+    <End Type="MenuwrapModel.Location" Role="Location" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="City_Id" />
+      </Principal>
+      <Dependent Role="Location">
+        <PropertyRef Name="city_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comment__Item_Id__17036CC0">
+    <End Type="MenuwrapModel.FoodItem" Role="FoodItem" Multiplicity="0..1" />
+    <End Type="MenuwrapModel.comment" Role="comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodItem">
+        <PropertyRef Name="Item_Id" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comment__Res_foo__17F790F9">
+    <End Type="MenuwrapModel.Res_food_map" Role="Res_food_map" Multiplicity="0..1" />
+    <End Type="MenuwrapModel.comment" Role="comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Res_food_map">
+        <PropertyRef Name="Res_food_mId" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="Res_food_mId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comment__Restura__18EBB532">
+    <End Type="MenuwrapModel.Restaurant" Role="Restaurant" Multiplicity="0..1" />
+    <End Type="MenuwrapModel.comment" Role="comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Resturant_Id" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="Resturant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__comment__UserId__19DFD96B">
+    <End Type="MenuwrapModel.user" Role="user" Multiplicity="1" />
+    <End Type="MenuwrapModel.comment" Role="comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FoodItem__Cusine__0B91BA14">
+    <End Type="MenuwrapModel.cuisine" Role="cuisine" Multiplicity="0..1" />
+    <End Type="MenuwrapModel.FoodItem" Role="FoodItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cuisine">
+        <PropertyRef Name="Cuisine_Id" />
+      </Principal>
+      <Dependent Role="FoodItem">
+        <PropertyRef Name="Cusine_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Filter_ca__Filte__0D7A0286">
+    <End Type="MenuwrapModel.Filter" Role="Filter" Multiplicity="1" />
+    <End Type="MenuwrapModel.Filter_cat_map" Role="Filter_cat_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filter">
+        <PropertyRef Name="Filter_Id" />
+      </Principal>
+      <Dependent Role="Filter_cat_map">
+        <PropertyRef Name="Filter_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Res_food___Item___1332DBDC">
+    <End Type="MenuwrapModel.FoodItem" Role="FoodItem" Multiplicity="1" />
+    <End Type="MenuwrapModel.Res_food_map" Role="Res_food_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodItem">
+        <PropertyRef Name="Item_Id" />
+      </Principal>
+      <Dependent Role="Res_food_map">
+        <PropertyRef Name="Item_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Restauran__Locat__123EB7A3">
+    <End Type="MenuwrapModel.Location" Role="Location" Multiplicity="1" />
+    <End Type="MenuwrapModel.Restaurant" Role="Restaurant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Location_Id" />
+      </Principal>
+      <Dependent Role="Restaurant">
+        <PropertyRef Name="Location_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__Res_food___151B244E">
+    <End Type="MenuwrapModel.Res_food_map" Role="Res_food_map" Multiplicity="1" />
+    <End Type="MenuwrapModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Res_food_map">
+        <PropertyRef Name="Res_food_mId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="Res_food_mId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Order__UserId__160F4887">
+    <End Type="MenuwrapModel.user" Role="user" Multiplicity="1" />
+    <End Type="MenuwrapModel.Order" Role="Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Res_food___Restu__14270015">
+    <End Type="MenuwrapModel.Restaurant" Role="Restaurant" Multiplicity="1" />
+    <End Type="MenuwrapModel.Res_food_map" Role="Res_food_map" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurant">
+        <PropertyRef Name="Resturant_Id" />
+      </Principal>
+      <Dependent Role="Res_food_map">
+        <PropertyRef Name="Resturant_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__user__Role_Id__0A9D95DB">
+    <End Type="MenuwrapModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="MenuwrapModel.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Role_Id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,27 @@
+﻿<div class="container">
+    <div class="logo wow fadeInRight" data-wow-delay="0.4s">
+        <a href="#"><img src="images/logo.png" alt="MENU WRAP" width="75" /></a>
+    </div>
+    <span class="menu"></span>
+    <div class="top-menu wow fadeInLeft" data-wow-delay="0.4s">
+        <ul>
+            <li><a class="active scroll hvr-shutter-out-horizontal" ui-sref="home">Home</a></li>
+            <li><a class="scroll hvr-shutter-out-horizontal" ui-sref="service">Service</a></li>
+            <!--<li><a class="scroll hvr-shutter-out-horizontal" ui-sref="about">About us</a></li>-->
+            <li><a class="scroll hvr-shutter-out-horizontal" ui-sref="restraunt">Top Restraunts</a></li>
+            <li><a class="scroll hvr-shutter-out-horizontal" ui-sref="happy-clients">Happy Clients</a></li>
+            <li><a class="scroll hvr-shutter-out-horizontal" ui-sref="contact">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<a class="scroll" id="toTop" style="display: block;cursor:pointer" title="Menu"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+<script type="text/javascript">
+    $().UItoTop({ easingType: 'easeOutQuart' });
+    $("span.menu").click(function () {
+        $(".top-menu").slideToggle("slow", function () {
+            // Animation complete.
+        });
+    });
+    new WOW().init();
+</script>
