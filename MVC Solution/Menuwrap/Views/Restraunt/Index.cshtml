@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<br /><br /><br />
 <h2>Index</h2>
 
 <p>
@@ -19,21 +19,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Rest_Desc)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Landmark)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Location_Id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Zipcode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rest_mailId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Is_active)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Rest_addr)
@@ -53,27 +38,12 @@
             @Html.DisplayFor(modelItem => item.Rest_Desc)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Landmark)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Location_Id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Zipcode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rest_mailId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Is_active)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Rest_addr)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new {  id=item.Resturant_Id  }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Resturant_Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Resturant_Id }) |
         </td>
     </tr>
 }

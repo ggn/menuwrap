@@ -20,3 +20,14 @@ C:\Users\abc\Desktop\Menuwrap\Menuwrap V.01\ServiceLayer\bin\Debug\Repository.pd
 C:\Users\abc\Desktop\Menuwrap\Menuwrap V.01\ServiceLayer\bin\Debug\EntityFramework.xml
 C:\Users\abc\Desktop\Menuwrap\Menuwrap V.01\ServiceLayer\obj\Debug\ServiceLayer.dll
 C:\Users\abc\Desktop\Menuwrap\Menuwrap V.01\ServiceLayer\obj\Debug\ServiceLayer.pdb
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\bin\Debug\ServiceLayer.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\bin\Debug\ServiceLayer.pdb
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\bin\Debug\DataAccessLayer.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\bin\Debug\Repository.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\bin\Debug\EntityFramework.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\bin\Debug\DataAccessLayer.pdb
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\bin\Debug\Repository.pdb
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\bin\Debug\EntityFramework.xml
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\obj\Debug\ServiceLayer.csprojResolveAssemblyReference.cache
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\obj\Debug\ServiceLayer.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\ServiceLayer\obj\Debug\ServiceLayer.pdb

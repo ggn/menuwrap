@@ -267,6 +267,10 @@
       <Project>{c9f52ca8-5a4e-4931-8b5b-73a46b6919aa}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{e217e835-ccd4-4c64-a817-cf73e4f70895}</Project>
+      <Name>Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ServiceLayer\ServiceLayer.csproj">
       <Project>{2fccdbd3-8a8b-43db-871c-3953b3b3df5b}</Project>
       <Name>ServiceLayer</Name>

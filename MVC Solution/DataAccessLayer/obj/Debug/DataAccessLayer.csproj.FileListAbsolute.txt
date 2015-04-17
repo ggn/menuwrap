@@ -17,3 +17,12 @@ C:\Users\abc\Desktop\Menuwrap\Menuwrap V.01\DataAccessLayer\bin\Debug\EntityFram
 C:\Users\abc\Desktop\Menuwrap\Menuwrap V.01\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\abc\Desktop\Menuwrap\Menuwrap V.01\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\abc\Desktop\Menuwrap\Menuwrap V.01\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\EntityFramework.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\EntityFramework.xml
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

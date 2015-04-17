@@ -48,17 +48,16 @@ namespace Menuwrap.Controllers
         // GET: Restraunt/Edit/5
         public ActionResult Edit(int id)
         {
-            return View(buisnessLogic.GetRestaurants(id));
+            return View(buisnessLogic.GetRestaurants(id).FirstOrDefault());
         }
 
         // POST: Restraunt/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Restaurant collection)
         {
             try
             {
-                // TODO: Add update logic here
-
+                buisnessLogic.InsertRestraunt(collection);
                 return RedirectToAction("Index");
             }
             catch
