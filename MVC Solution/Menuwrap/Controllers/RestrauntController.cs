@@ -69,17 +69,17 @@ namespace Menuwrap.Controllers
         // GET: Restraunt/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(buisnessLogic.GetRestaurants(id).FirstOrDefault());
         }
 
         // POST: Restraunt/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(int id, Restaurant collection)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                buisnessLogic.DeleteRestraunt(collection.Resturant_Id);
                 return RedirectToAction("Index");
             }
             catch

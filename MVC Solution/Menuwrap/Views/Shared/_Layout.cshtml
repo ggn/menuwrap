@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/png" href="~/Content/images/favicon.ico" />
 </head>
 <body>
-    <nav class="navbar navbar-fixed-top navbar-custom">
+    <nav class="navbar navbar-static-top navbar-custom" style="margin-bottom:0px;">
         <div class="container">
             <div class="navbar-header">
                 <a href="@Url.Action("Index","Home")"> <img class="navbar-brand" src="~/Content/images/viewlogo.png" alt="MENU WRAP" style="width:100px;height:70px;" /> </a> 
@@ -53,13 +53,10 @@
             </div>
         </div>
     </nav>
-
     <div class="main-div">
         @RenderBody()
-        <div class="margin-bottom"></div>
     </div>
-    <div class="gaprow"></div>
-    <footer>
+    <footer class="no-margin">
         <div class="container">
             <div class="gaprow"></div>
             <div class="row">
@@ -116,52 +113,7 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 <script type="text/javascript">
-    @*var clicked = false;
-    var changed = false;
-    $("#cities").hover(function () {
-        if (!clicked) {
-            $("#cities").tokenInput("@Url.Action("SearchCity","Home")",
-        {
-            tokenLimit: 1,
-            minChars: 2,
-            searchDelay: 200,
-            hintText: "Enter city",
-        });
-            clicked = true;
-        }
-    });
-
-
-
-    $("#location").hover(function () {
-        var city = $('#cities').val();
-        if (!changed && city) {
-            var locationURL = $('#locationURL').val() + "?cityID=" + city;
-            $("#location").tokenInput(locationURL,
-            {
-                tokenLimit: 1,
-                minChars: 2,
-                searchDelay: 200,
-                hintText: "Enter Location",
-                queryParam: "areaID",
-            });
-            changed = true;
-        }
-    });*@
-
-    @*$('#SearchSubmit').click(function (e) {
-        e.preventDefault();
-        $.ajax({
-            url: "@Url.Action("SearchFood","Home")",
-            data: $('#SearchFoodCat').serialize(),
-            type: "POST"
-        }).success(function (data) {
-            $('#SearchResult').html(data);
-        }).error(function (error) {
-            alert(error);
-        });
-    });*@
-
+    
     $('#citiesDdl').change(function () {
         var selectedCity = $.trim($(this).val());
         $('#SearchResult').html("");
@@ -185,29 +137,5 @@
             $('#locationDdl').val('').attr('disabled', 'disabled');
         }
     });
-
-    //$(".multiselect").multiselect();
-    //$('#citiesDdl').change(function () {
-    //    var selectedCity = $.trim($(this).val());
-    //    $('#SearchResult').html("");
-    //    if (selectedCity != "") {
-    //        $('#locationDdl').html("<option value=''>Select Location</option>")
-    //        $.ajax({
-    //            url: $('#locationURL').val(),
-    //            data: { cityId: selectedCity },
-    //            type: "POST"
-    //        }).success(function (data) {
-    //            if (data) {
-    //                $.each(JSON.parse(data), function (i, item) {
-    //                    $('#locationDdl').append("<option value='" + item.id + "'>" + item.name + "</option>")
-    //                    $('#locationDdl').removeAttr('disabled');
-    //                });
-    //            }
-    //        }).error(function () {
-    //            alert("Some Error Occured");
-    //        });
-    //    } else {
-    //        $('#locationDdl').val('').attr('disabled', 'disabled');
-    //    }
-    //});
 </script>
+@RenderSection("Scripts")

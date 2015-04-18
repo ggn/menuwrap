@@ -19,6 +19,7 @@ namespace Repository
         List<Category> getCategories();
         List<Restaurant> GetRestaurants(int? id);
         bool InsertRestraunt(Restaurant res);
+        bool DeleteRestraunt(long resID);
     }
 
     public class ModelRepository : IRepository
@@ -50,32 +51,34 @@ namespace Repository
 
         public IQueryable<Location> get_location(string p, int city_id)
         {
-            if (string.IsNullOrEmpty(p)) {
+            if (string.IsNullOrEmpty(p))
+            {
                 return menuwrapEntities.Locations.Where(x => x.city_Id == city_id);
             }
             return menuwrapEntities.Locations.Where(x => x.Location_name.Contains(p) && x.city_Id == city_id);
         }
 
 
-        public List<SearchResult> GetSearchResult(int locationID,int categoryID)
+        public List<SearchResult> GetSearchResult(int locationID, int categoryID)
         {
             var a = menuwrapEntities.Restaurants.Where(x => x.Location_Id == locationID)
                 .Join(menuwrapEntities.Res_food_map,
                 x => x.Resturant_Id,
                 y => y.Resturant_Id,
                 (x, y) => new { res = x, res_map = y })
-                .Join(menuwrapEntities.FoodItems.Where(z=>z.Cat_food_map.Any(map=>map.Category_Id==categoryID)),
+                .Join(menuwrapEntities.FoodItems.Where(z => z.Cat_food_map.Any(map => map.Category_Id == categoryID)),
                 res_map => res_map.res_map.Item_Id,
                 food => food.Item_Id,
                 (res_map, food) => new { res_map_detail = res_map, fooditem = food });
 
-            var b = a.Select(x=> new SearchResult() { 
-                 RestaurantId =x.res_map_detail.res.Resturant_Id,
-                 FoodId = x.fooditem.Item_Id,
-                  RestaurantName = x.res_map_detail.res.Restaurant_name,
-                  FoodName = x.fooditem.Item_name,
-                   Price = x.res_map_detail.res_map.Cost,
-                 CategoryId = categoryID
+            var b = a.Select(x => new SearchResult()
+            {
+                RestaurantId = x.res_map_detail.res.Resturant_Id,
+                FoodId = x.fooditem.Item_Id,
+                RestaurantName = x.res_map_detail.res.Restaurant_name,
+                FoodName = x.fooditem.Item_name,
+                Price = x.res_map_detail.res_map.Cost,
+                CategoryId = categoryID
             }).ToList();
 
             return b;
@@ -99,16 +102,17 @@ namespace Repository
 
             var temp = a.Where(x => x.foodCatMAp.Category_Id == categoryID);
 
-            var b = temp.Select(x=> new SearchResult() { 
-                 RestaurantName = x.resFoods.resFoodMap.rest.Restaurant_name,
-                 RestaurantId = x.resFoods.resFoodMap.rest.Resturant_Id,
-                 FoodId = x.resFoods.food.Item_Id,
-                 FoodName = x.resFoods.food.Item_name,
-                 Price = x.resFoods.resFoodMap.restFoodMap.Cost,
-                  //Landmark = x.resFoods.resFoodMap.rest.Landmark,
-                  RestDesc = x.resFoods.resFoodMap.rest.Rest_Desc
-            }).ToList() ;
-                
+            var b = temp.Select(x => new SearchResult()
+            {
+                RestaurantName = x.resFoods.resFoodMap.rest.Restaurant_name,
+                RestaurantId = x.resFoods.resFoodMap.rest.Resturant_Id,
+                FoodId = x.resFoods.food.Item_Id,
+                FoodName = x.resFoods.food.Item_name,
+                Price = x.resFoods.resFoodMap.restFoodMap.Cost,
+                //Landmark = x.resFoods.resFoodMap.rest.Landmark,
+                RestDesc = x.resFoods.resFoodMap.rest.Rest_Desc
+            }).ToList();
+
             return b;
         }
 
@@ -129,7 +133,8 @@ namespace Repository
             {
                 res = menuwrapEntities.Restaurants.Where(x => x.Resturant_Id == id.Value).ToList();
             }
-            else {
+            else
+            {
                 res = menuwrapEntities.Restaurants.ToList();
             }
             return res;
@@ -139,7 +144,21 @@ namespace Repository
         {
             try
             {
-                menuwrapEntities.Restaurants.Add(res);
+                if (res.Resturant_Id > 0)
+                {
+                    var temp = menuwrapEntities.Restaurants.First(x => x.Resturant_Id == res.Resturant_Id);
+                    temp.Location_Id = res.Location_Id;
+                    temp.Rest_Desc = res.Rest_Desc;
+                    temp.Restaurant_name = res.Restaurant_name;
+                    temp.Zipcode = res.Zipcode;
+                    temp.Is_active = res.Is_active;
+                    temp.Rest_addr = res.Rest_addr;
+                    menuwrapEntities.Entry(temp).State = System.Data.Entity.EntityState.Modified;
+                }
+                else
+                {
+                    menuwrapEntities.Restaurants.Add(res);
+                }
                 menuwrapEntities.SaveChanges();
                 return true;
             }
@@ -149,5 +168,19 @@ namespace Repository
             }
         }
 
+        public bool DeleteRestraunt(long resID)
+        {
+            try
+            {
+                menuwrapEntities.Restaurants.Remove(menuwrapEntities.Restaurants.FirstOrDefault(x => x.Resturant_Id == resID));
+                menuwrapEntities.SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
+
 }

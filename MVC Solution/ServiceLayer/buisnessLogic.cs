@@ -19,6 +19,7 @@ namespace ServiceLayer
         List<Category> getCategories();
         List<Restaurant> GetRestaurants(int? id);
         bool InsertRestraunt(Restaurant res);
+        bool DeleteRestraunt(long resID);
     }
 
     public class buisnessLogic : IbuisnessLogic
@@ -71,6 +72,8 @@ namespace ServiceLayer
             return repository.InsertRestraunt(res);
         }
 
-
+        public bool DeleteRestraunt(long resID) {
+            return repository.DeleteRestraunt(resID);
+        }
     }
 }
