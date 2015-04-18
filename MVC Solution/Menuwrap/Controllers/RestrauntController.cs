@@ -74,12 +74,12 @@ namespace Menuwrap.Controllers
 
         // POST: Restraunt/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, Restaurant collection)
+        public ActionResult Delete(long id)
         {
             try
             {
                 // TODO: Add delete logic here
-                buisnessLogic.DeleteRestraunt(collection.Resturant_Id);
+                buisnessLogic.DeleteRestraunt(id);
                 return RedirectToAction("Index");
             }
             catch

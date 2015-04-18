@@ -23,7 +23,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Rest_addr)
             </th>
-            <th></th>
+            <th width="13%">Action</th>
         </tr>
 
         @foreach (var item in Model)
@@ -44,7 +44,7 @@
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.Resturant_Id }) |
                     @Html.ActionLink("Details", "Details", new { id = item.Resturant_Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Resturant_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Resturant_Id }) 
                 </td>
             </tr>
         }
