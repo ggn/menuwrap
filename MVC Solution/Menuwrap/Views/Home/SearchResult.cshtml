@@ -8,23 +8,15 @@
             <hr />
             <div class="filter-content">
                 <div class="subtitle">Type</div>
-                <ul>
-                    <li>
-                        <input type="checkbox" id="veg" name="veg">
-                        <label for="veg">Veg</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" id="non-veg" name="non-veg">
-                        <label for="veg">Non-Veg</label>
-                    </li>
-                </ul>
-                <div class="subtitle">Cost</div>
-                <input type="range" min="100" max="1000" />
-                <div class="subtitle">Restraunt</div>
-                @foreach (var restraunt in Model.Select(x => new { RestaurantName = x.RestaurantName, RestaurantId = x.RestaurantId }).Distinct())
-                {
-                    <input type="checkbox" value="@restraunt.RestaurantId" /> @restraunt.RestaurantName <br />
-                }
+                <input type="radio" id="veg" value="true" name="isVeg"/>
+                <label for="veg">Veg</label>&nbsp;&nbsp;
+                <input type="radio" id="non-veg" value="false" name="isVeg"/>
+                <label for="veg">Non-Veg</label>
+                <br /><br />
+                <div class="subtitle">Max Cost</div>
+                <input type=range min=0 max=1000 value=1000 id=fader step=50 oninput="outputUpdate(value)" style="vertical-align:middle">
+                <input type="text" id="cost" value="1000" style="width:40px" readonly="readonly">
+                <br /><br />
             </div>
         </aside>
     </div>
@@ -68,5 +60,8 @@
         }).error(function () {
             alert("Some Error Occured");
         });
+    }
+    function outputUpdate(vol) {
+        document.querySelector('#cost').value = vol;
     }
 </script>
