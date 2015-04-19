@@ -34,7 +34,7 @@
         @foreach (var result in Model)
         {
             <div class="panel panel-default">
-                <div class="panel-heading"><span class="menu-heading">@Html.ActionLink(@result.RestaurantName, "Index", "RestuarntInfo", new { restID = result.RestaurantId, catId = result.CategoryId }, null)</span></div>
+                <div class="panel-heading hand-cursor" data-url="@Url.Action("Index", "RestuarntInfo")" data-restid="@result.RestaurantId" data-catid="@result.CategoryId" onclick="GetMenu(this)"><span class="menu-heading">@result.RestaurantName</span></div>
                 <div class="gap-row"></div>
                 <div class="row">
                     <div class="col-xs-12">
@@ -58,4 +58,15 @@
     $(document).ready(function () {
         $('.filter-height').css('height', $('.search-result-list-div').css('height'));
     });
+    function GetMenu(obj) {
+        $.ajax({
+            url: $(obj).attr('data-url'),
+            data: { restID: $(obj).attr('data-restID'), catId: $(obj).attr('data-catId') },
+            type: "POST",
+        }).success(function (data) {
+            $('#searh-result-div').html(data);
+        }).error(function () {
+            alert("Some Error Occured");
+        });
+    }
 </script>

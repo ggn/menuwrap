@@ -13,9 +13,10 @@ namespace Menuwrap.Controllers
     public class RestuarntInfoController : BaseController
     {
         // GET: RestuarntInfo
+        [HttpPost]
         public ActionResult Index(int restID,int catId)
         {
-            return View(buisnessLogic.GetRestaurantResult(restID, catId));
+            return PartialView("Index",buisnessLogic.GetRestaurantResult(restID, catId));
         }
 
     }
