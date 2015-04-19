@@ -1,7 +1,7 @@
 ﻿@model List<DataAccessLayer.SearchResult>
 
 <div class="row no-margin">
-    <div class="col-xs-3 filter-height" style="background-color:black;">
+    <div class="col-xs-2 filter-height" style="background-color:black;">
         <aside class="filter">
             <div class="gap-row"></div>
             <h4>Select Filters</h4>
@@ -29,7 +29,7 @@
         </aside>
     </div>
 
-    <div class="col-xs-8 search-result-list-div">
+    <div class="col-xs-9 search-result-list-div">
         <div class="margin-top">&nbsp;</div>
         @foreach (var result in Model)
         {
@@ -54,11 +54,8 @@
     </div>
 
 </div>
-@section scripts{
 <script>
     $(document).ready(function () {
         $('.filter-height').css('height', $('.search-result-list-div').css('height'));
     });
 </script>
-
-    }

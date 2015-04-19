@@ -182,6 +182,7 @@
     <Content Include="Content\images\1.jpg" />
     <Content Include="Content\images\2.jpg" />
     <Content Include="Content\images\3.jpg" />
+    <Content Include="Content\images\ajaxloading.gif" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\images.png" />
     <Content Include="Content\images\mw_bg_img.jpg" />

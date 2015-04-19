@@ -64,7 +64,7 @@ namespace Menuwrap.Controllers
         public ActionResult SearchFood(int location_Id,int category_Id)
         {
             var retList = buisnessLogic.GetSearchResult(location_Id,category_Id);
-            return View("SearchResult",retList);
+            return PartialView("SearchResult",retList);
         }
 
         

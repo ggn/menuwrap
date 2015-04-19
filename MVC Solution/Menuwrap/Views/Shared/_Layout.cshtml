@@ -12,7 +12,7 @@
     <nav class="navbar navbar-static-top navbar-custom" style="margin-bottom:0px;">
         <div class="container">
             <div class="navbar-header">
-                <a href="@Url.Action("Index","Home")"> <img class="navbar-brand" src="~/Content/images/viewlogo.png" alt="MENU WRAP" style="width:100px;height:70px;" /> </a> 
+                <a href="@Url.Action("Index","Home")"> <img class="navbar-brand" src="~/Content/images/viewlogo.png" alt="MENU WRAP" style="width:100px;height:70px;" /> </a>
             </div>
             <div class="text-right">
                 <form id="SearchFoodCat" action="@Url.Action("SearchFood","Home")" method="post">
@@ -30,7 +30,7 @@
                         <li>
                             <div class="inner-addon left-addon">
                                 <i class="glyphicon glyphicon-map-marker"></i>
-                               @* <input id="location" class="form-control-custom menu-input" type="text" value="" name="location_Id" placeholder="Enter your Location" required />*@
+                                @* <input id="location" class="form-control-custom menu-input" type="text" value="" name="location_Id" placeholder="Enter your Location" required />*@
                                 <select disabled="disabled" name="location_Id" class="form-control-custom menu-input" id="locationDdl" required>
                                     <option value="">Select Location</option>
                                 </select>
@@ -42,7 +42,7 @@
                                 @{
                                     temp = ViewBag.categories; //Value should not be null
                                 }
-                                @Html.DropDownList("category_Id", temp, "Select Category", new { id = "foodCategory", @class = "form-control-custom menu-input" , required=""})
+                                @Html.DropDownList("category_Id", temp, "Select Category", new { id = "foodCategory", @class = "form-control-custom menu-input", required = "" })
 
                             </div>
                         </li>
@@ -104,22 +104,30 @@
             </div>
         </div>
     </footer>
-
-
     <input type="hidden" id="locationURL" value="@Url.Action("SearchLocation", "Home")" />
     <input type="hidden" id="foodCategoryURL" value="@Url.Action("foodCategory", "Home")" />
+    <div id="loading-gif" class="text-center">
+        <img src="~/Content/images/ajaxloading.gif" />
+        <br />
+        Loading...
+    </div>
 </body>
 </html>
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 <script type="text/javascript">
-    
+    $('#loading-gif').hide();
+    $(document).bind("ajaxStart", function () {
+        $('#loading-gif').show();
+    }).bind("ajaxStop", function () {
+        $('#loading-gif').hide();
+    });
     $('#citiesDdl').change(function () {
         var selectedCity = $.trim($(this).val());
         $('#SearchResult').html("");
         if (selectedCity != "") {
             $('#locationDdl').html("<option value=''>Select Location</option>")
-            $.ajax({ 
+            $.ajax({
                 url: $('#locationURL').val(),
                 data: { cityId: selectedCity },
                 type: "POST"
@@ -137,5 +145,45 @@
             $('#locationDdl').val('').attr('disabled', 'disabled');
         }
     });
+
+    $('#SearchFoodCat').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            type: "POST",
+        }).success(function (data) {
+            $('#searh-result-div').html(data);
+        }).error(function () {
+            alert("Some Error Occured");
+        });
+    });
 </script>
-@RenderSection("scripts",required:false)
+@RenderSection("scripts", required: false)
+<style>
+    #loading-gif {
+        height: 160px;
+        width: 160px;
+        border-radius: 80px;
+        margin: 0 auto;
+        display: table;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%);
+        -moz-transform: translate(-50%);
+        -o-transform: translate(-50%);
+        -ms-transform: translate(-50%);
+        transform: translate(-50%);
+        color: red;
+        font-size: 20px;
+        padding-top: 20px;
+        -webkit-box-shadow: 1px 2px 5px 5px rgba(50, 50, 50, 0.75);
+        -moz-box-shadow: 1px 2px 5px 5px rgba(50, 50, 50, 0.75);
+        box-shadow: 1px 2px 5px 5px rgba(50, 50, 50, 0.75);
+    }
+
+        #loading-gif img {
+            width: 85px;
+        }
+</style>
