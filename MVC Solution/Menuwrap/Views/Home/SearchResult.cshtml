@@ -1,22 +1,26 @@
 ﻿@model List<DataAccessLayer.SearchResult>
 
 <div class="row no-margin">
-    <div class="col-xs-2 filter-height" style="background-color:black;">
+    <div class="col-xs-2 filter-height min-height-divs" style="background-color:black;">
         <aside class="filter">
             <div class="gap-row"></div>
             <h4>Select Filters</h4>
             <hr />
             <div class="filter-content">
                 <div class="subtitle">Type</div>
-                <input type="radio" id="veg" value="true" name="isVeg"/>
+                <input type="radio" id="veg" value="true" name="isVeg" />
                 <label for="veg">Veg</label>&nbsp;&nbsp;
-                <input type="radio" id="non-veg" value="false" name="isVeg"/>
+                <input type="radio" id="non-veg" value="false" name="isVeg" />
                 <label for="veg">Non-Veg</label>
                 <br /><br />
                 <div class="subtitle">Max Cost</div>
                 <input type=range min=0 max=1000 value=1000 id=fader step=50 oninput="outputUpdate(value)" style="vertical-align:middle">
                 <input type="text" id="cost" value="1000" style="width:40px" readonly="readonly">
                 <br /><br />
+                <div class="subtitle">Advanced Filters</div>
+                <div class="AdvanceFilterdiv">
+
+                </div>
             </div>
         </aside>
     </div>
@@ -51,12 +55,14 @@
         $('.filter-height').css('height', $('.search-result-list-div').css('height'));
     });
     function GetMenu(obj) {
+        $('#searh-result-div').slideUp('fast');
         $.ajax({
             url: $(obj).attr('data-url'),
             data: { restID: $(obj).attr('data-restID'), catId: $(obj).attr('data-catId') },
             type: "POST",
         }).success(function (data) {
-            $('#searh-result-div').html(data);
+            $('#restraunt-menu-div').html(data);
+            $('#restraunt-menu-div').slideDown('slow');
         }).error(function () {
             alert("Some Error Occured");
         });

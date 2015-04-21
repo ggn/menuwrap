@@ -124,7 +124,7 @@
     });
     $('#citiesDdl').change(function () {
         var selectedCity = $.trim($(this).val());
-        $('#SearchResult').html("");
+        $('#searh-result-div').html("");
         if (selectedCity != "") {
             $('#locationDdl').html("<option value=''>Select Location</option>")
             $.ajax({
@@ -148,12 +148,15 @@
 
     $('#SearchFoodCat').submit(function (e) {
         e.preventDefault();
+        $('#searh-result-div').hide();
+        $('#restraunt-menu-div').hide();
         $.ajax({
             url: $(this).attr('action'),
             data: $(this).serialize(),
             type: "POST",
         }).success(function (data) {
             $('#searh-result-div').html(data);
+            $('#searh-result-div').slideDown('slow');
         }).error(function () {
             alert("Some Error Occured");
         });

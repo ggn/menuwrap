@@ -98,3 +98,7 @@
 .hand-cursor {
     cursor:pointer;
 }
+
+.min-height-divs {
+    min-height: 800px;
+}
