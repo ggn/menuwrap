@@ -50,9 +50,24 @@
     </div>
 
 </div>
+<input type="hidden" id="GetFilterUrl" value="@Url.Action("GetFilter","Home")" />
 <script>
     $(document).ready(function () {
         $('.filter-height').css('height', $('.search-result-list-div').css('height'));
+        $.ajax({
+            url: $('#GetFilterUrl').val(),
+            data: { category_Id: $('#foodCategory').val() },
+            type: "POST",
+        }).success(function (data) {
+            if (data && data.length>1) {
+                alert('Filers fetched');
+            } else {
+                alert('Filter Empty');
+            }
+            
+        }).error(function () {
+            alert("Some Error Occured");
+        });
     });
     function GetMenu(obj) {
         $('#searh-result-div').slideUp('fast');

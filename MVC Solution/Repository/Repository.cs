@@ -20,6 +20,7 @@ namespace Repository
         List<Restaurant> GetRestaurants(int? id);
         bool InsertRestraunt(Restaurant res);
         bool DeleteRestraunt(long resID);
+        List<Filter> GetFilters(long categoryID);
     }
 
     public class ModelRepository : IRepository
@@ -180,6 +181,11 @@ namespace Repository
             {
                 return false;
             }
+        }
+
+        public List<Filter> GetFilters(long categoryID)
+        {
+            return menuwrapEntities.Filters.Include("Filter_cat_map").Where(x=>x.Filter_cat_map.Any(y=>y.category_Id==categoryID)).ToList();
         }
     }
 

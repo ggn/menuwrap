@@ -67,6 +67,12 @@ namespace Menuwrap.Controllers
             return PartialView("SearchResult",retList);
         }
 
-        
+        [HttpPost]
+        public SelectList GetFilter(long category_Id)
+        {
+            var retList = buisnessLogic.GetFilters(category_Id);
+            var filter = new SelectList(retList, "Filter_Id", "Filter_name");
+            return filter;
+        }
     }
 }
