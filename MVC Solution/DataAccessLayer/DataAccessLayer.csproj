@@ -63,6 +63,7 @@
     <Compile Include="cuisine.cs">
       <DependentUpon>MenuWrap.tt</DependentUpon>
     </Compile>
+    <Compile Include="CategoryFilters.cs" />
     <Compile Include="Filter.cs">
       <DependentUpon>MenuWrap.tt</DependentUpon>
     </Compile>

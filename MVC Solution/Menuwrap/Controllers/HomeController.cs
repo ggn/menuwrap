@@ -61,18 +61,22 @@ namespace Menuwrap.Controllers
         }
 
         [HttpPost]
-        public ActionResult SearchFood(int location_Id,int category_Id)
+        public ActionResult SearchFood(CategoryFilters categoryFilter)
         {
-            var retList = buisnessLogic.GetSearchResult(location_Id,category_Id);
+            var retList = buisnessLogic.GetSearchResult(categoryFilter.location_Id, categoryFilter.category_Id);
+            if (!string.IsNullOrEmpty(categoryFilter.customFilterStringified))
+            {
+                return PartialView("_FilteredFoodResult", retList);
+            }
             return PartialView("SearchResult",retList);
         }
 
         [HttpPost]
-        public SelectList GetFilter(long category_Id)
+        public JsonResult GetFilter(long category_Id)
         {
             var retList = buisnessLogic.GetFilters(category_Id);
             var filter = new SelectList(retList, "Filter_Id", "Filter_name");
-            return filter;
+            return Json(filter, JsonRequestBehavior.AllowGet);
         }
     }
 }

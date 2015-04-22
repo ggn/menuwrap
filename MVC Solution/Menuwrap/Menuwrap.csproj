@@ -251,6 +251,7 @@
     <Content Include="Views\Restraunt\Create.cshtml" />
     <Content Include="Views\Restraunt\Edit.cshtml" />
     <Content Include="Views\Restraunt\Delete.cshtml" />
+    <Content Include="Views\Home\_FilteredFoodResult.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
