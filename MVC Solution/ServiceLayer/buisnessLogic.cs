@@ -13,7 +13,7 @@ namespace ServiceLayer
         user GetUser(int userID);
         List<City> get_city(string p);
         List<Location> get_location(string p, int city_id);
-        List<SearchResult> GetSearchResult(int locationID,int categoryID);
+        List<SearchResult> GetSearchResult(CategoryFilters categoryFilter);
         List<SearchResult> GetRestaurantResult(int restID, int categoryID);
         List<Category> getCategories(string category);
         List<Category> getCategories();
@@ -46,9 +46,9 @@ namespace ServiceLayer
             return repository.get_location(p, city_id).ToList();
         }
 
-        public List<SearchResult> GetSearchResult(int locationID,int categoryID)
+        public List<SearchResult> GetSearchResult(CategoryFilters categoryFilter)
         {
-            return repository.GetSearchResult(locationID,categoryID);
+            return repository.GetSearchResult(categoryFilter);
         }
 
         public List<SearchResult> GetRestaurantResult(int restID, int categoryID)

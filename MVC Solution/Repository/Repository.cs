@@ -13,7 +13,7 @@ namespace Repository
         user GetUser(int userID);
         IQueryable<City> get_city(string p);
         IQueryable<Location> get_location(string p, int city_id);
-        List<SearchResult> GetSearchResult(int locationID, int categoryID);
+        List<SearchResult> GetSearchResult(CategoryFilters categoryFilter);
         List<Category> getCategories(string category);
         List<SearchResult> GetRestaurantResult(int restID, int categoryID);
         List<Category> getCategories();
@@ -60,17 +60,40 @@ namespace Repository
         }
 
 
-        public List<SearchResult> GetSearchResult(int locationID, int categoryID)
+        public List<SearchResult> GetSearchResult(CategoryFilters categoryFilter)
         {
-            var a = menuwrapEntities.Restaurants.Where(x => x.Location_Id == locationID)
+            var a = menuwrapEntities.Restaurants.Where(x => x.Location_Id == categoryFilter.location_Id)
                 .Join(menuwrapEntities.Res_food_map,
                 x => x.Resturant_Id,
                 y => y.Resturant_Id,
                 (x, y) => new { res = x, res_map = y })
-                .Join(menuwrapEntities.FoodItems.Where(z => z.Cat_food_map.Any(map => map.Category_Id == categoryID)),
+                .Join(menuwrapEntities.FoodItems.Where(z => z.Cat_food_map.Any(map => map.Category_Id == categoryFilter.category_Id)),
                 res_map => res_map.res_map.Item_Id,
                 food => food.Item_Id,
                 (res_map, food) => new { res_map_detail = res_map, fooditem = food });
+
+            if (categoryFilter.isVeg.HasValue)
+            {
+                a = a.Where(x => x.fooditem.isVeg == categoryFilter.isVeg.Value);
+            }
+
+            if (categoryFilter.FilterId > 0) {
+                a = a.Where(x => x.fooditem.FilterId == categoryFilter.FilterId);
+            }
+
+            if (categoryFilter.maxCost > 0)
+            {
+                a = a.Where(x => x.res_map_detail.res_map.Cost <= categoryFilter.maxCost);
+            }
+
+            if (categoryFilter.CusineId > 0 && categoryFilter.SubCusineId <= 0) {
+                a = a.Where(x => x.fooditem.Cusine_Id == categoryFilter.CusineId);
+            }
+
+            if (categoryFilter.SubCusineId > 0)
+            {
+                a = a.Where(x => x.fooditem.Cusine_Id == categoryFilter.SubCusineId);
+            }
 
             var b = a.Select(x => new SearchResult()
             {
@@ -79,7 +102,7 @@ namespace Repository
                 RestaurantName = x.res_map_detail.res.Restaurant_name,
                 FoodName = x.fooditem.Item_name,
                 Price = x.res_map_detail.res_map.Cost,
-                CategoryId = categoryID
+                CategoryId = categoryFilter.category_Id
             }).ToList();
 
             return b;

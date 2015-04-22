@@ -63,8 +63,8 @@ namespace Menuwrap.Controllers
         [HttpPost]
         public ActionResult SearchFood(CategoryFilters categoryFilter)
         {
-            var retList = buisnessLogic.GetSearchResult(categoryFilter.location_Id, categoryFilter.category_Id);
-            if (!string.IsNullOrEmpty(categoryFilter.customFilterStringified))
+            var retList = buisnessLogic.GetSearchResult(categoryFilter);
+            if (categoryFilter.maxCost>0)
             {
                 return PartialView("_FilteredFoodResult", retList);
             }

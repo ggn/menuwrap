@@ -87,7 +87,7 @@
         $('#restraunt-menu-div').hide();
         debugger;
         var jsonData = $('#SearchFoodCat').serialize();
-        jsonData += '&customFilterStringified="' + $('#CustomFilterForm').serialize() + '"';
+        jsonData += '&' + $('#CustomFilterForm').serialize();
         $.ajax({
             url: $('#SearchFoodCat').attr('action'),
             data: jsonData,
