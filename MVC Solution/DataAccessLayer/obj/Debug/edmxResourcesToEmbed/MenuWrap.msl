@@ -73,6 +73,7 @@
     <EntitySetMapping Name="FoodItems">
       <EntityTypeMapping TypeName="MenuwrapModel.FoodItem">
         <MappingFragment StoreEntitySet="FoodItems">
+          <ScalarProperty Name="FilterId" ColumnName="FilterId" />
           <ScalarProperty Name="isVeg" ColumnName="isVeg" />
           <ScalarProperty Name="Is_street" ColumnName="Is_street" />
           <ScalarProperty Name="No_time_sold" ColumnName="No_time_sold" />

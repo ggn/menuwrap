@@ -27,10 +27,12 @@ namespace DataAccessLayer
         public int No_time_sold { get; set; }
         public bool Is_street { get; set; }
         public Nullable<bool> isVeg { get; set; }
+        public Nullable<int> FilterId { get; set; }
     
         public virtual ICollection<Cat_food_map> Cat_food_map { get; set; }
         public virtual ICollection<comment> comments { get; set; }
         public virtual cuisine cuisine { get; set; }
         public virtual ICollection<Res_food_map> Res_food_map { get; set; }
+        public virtual Filter Filter { get; set; }
     }
 }

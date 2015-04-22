@@ -72,6 +72,7 @@
     <Property Name="No_time_sold" Type="int" Nullable="false" />
     <Property Name="Is_street" Type="bit" Nullable="false" />
     <Property Name="isVeg" Type="bit" />
+    <Property Name="FilterId" Type="int" />
   </EntityType>
   <EntityType Name="Locations">
     <Key>
@@ -267,6 +268,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__FoodItems__Filte__498EEC8D">
+    <End Role="Filters" Type="Self.Filters" Multiplicity="0..1" />
+    <End Role="FoodItems" Type="Self.FoodItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filters">
+        <PropertyRef Name="Filter_Id" />
+      </Principal>
+      <Dependent Role="FoodItems">
+        <PropertyRef Name="FilterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK__Location__city_I__0F624AF8">
     <End Role="Cities" Type="Self.Cities" Multiplicity="1" />
     <End Role="Locations" Type="Self.Locations" Multiplicity="*" />
@@ -405,6 +418,10 @@
     </AssociationSet>
     <AssociationSet Name="FK__FoodItem__Cusine__0B91BA14" Association="Self.FK__FoodItem__Cusine__0B91BA14">
       <End Role="cuisines" EntitySet="cuisines" />
+      <End Role="FoodItems" EntitySet="FoodItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FoodItems__Filte__498EEC8D" Association="Self.FK__FoodItems__Filte__498EEC8D">
+      <End Role="Filters" EntitySet="Filters" />
       <End Role="FoodItems" EntitySet="FoodItems" />
     </AssociationSet>
     <AssociationSet Name="FK__Location__city_I__0F624AF8" Association="Self.FK__Location__city_I__0F624AF8">

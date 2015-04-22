@@ -18,7 +18,7 @@
         <EntityTypeShape EntityType="MenuwrapModel.Res_food_map" Width="1.5" PointX="12.75" PointY="4.75" />
         <EntityTypeShape EntityType="MenuwrapModel.Restaurant" Width="1.5" PointX="7.5" PointY="4.75" />
         <EntityTypeShape EntityType="MenuwrapModel.Role" Width="1.5" PointX="5.25" PointY="10.25" />
-        <EntityTypeShape EntityType="MenuwrapModel.State" Width="1.5" PointX="0.75" PointY="5.5" />
+        <EntityTypeShape EntityType="MenuwrapModel.State" Width="1.5" PointX="0.75" PointY="6.5" />
         <EntityTypeShape EntityType="MenuwrapModel.user" Width="1.5" PointX="7.5" PointY="9.5" />
         <AssociationConnector Association="MenuwrapModel.FK__Cat_food___Categ__10566F31" />
         <AssociationConnector Association="MenuwrapModel.FK__Cat_food___Item___114A936A" />
@@ -37,6 +37,7 @@
         <AssociationConnector Association="MenuwrapModel.FK__Order__UserId__160F4887" />
         <AssociationConnector Association="MenuwrapModel.FK__Res_food___Restu__14270015" />
         <AssociationConnector Association="MenuwrapModel.FK__user__Role_Id__0A9D95DB" />
+        <AssociationConnector Association="MenuwrapModel.FK__FoodItems__Filte__498EEC8D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

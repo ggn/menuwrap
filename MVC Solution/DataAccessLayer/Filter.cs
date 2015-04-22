@@ -17,6 +17,7 @@ namespace DataAccessLayer
         public Filter()
         {
             this.Filter_cat_map = new HashSet<Filter_cat_map>();
+            this.FoodItems = new HashSet<FoodItem>();
         }
     
         public int Filter_Id { get; set; }
@@ -24,5 +25,6 @@ namespace DataAccessLayer
         public string Filter_desc { get; set; }
     
         public virtual ICollection<Filter_cat_map> Filter_cat_map { get; set; }
+        public virtual ICollection<FoodItem> FoodItems { get; set; }
     }
 }

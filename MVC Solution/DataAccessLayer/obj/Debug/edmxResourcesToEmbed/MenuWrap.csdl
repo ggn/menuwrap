@@ -84,6 +84,10 @@
       <End Role="Role" EntitySet="Roles" />
       <End Role="user" EntitySet="users" />
     </AssociationSet>
+    <AssociationSet Name="FK__FoodItems__Filte__498EEC8D" Association="MenuwrapModel.FK__FoodItems__Filte__498EEC8D">
+      <End Role="Filter" EntitySet="Filters" />
+      <End Role="FoodItem" EntitySet="FoodItems" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Cat_food_map">
     <Key>
@@ -160,6 +164,7 @@
     <Property Name="Filter_name" Type="String" Nullable="false" MaxLength="51" FixedLength="false" Unicode="false" />
     <Property Name="Filter_desc" Type="String" MaxLength="101" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Filter_cat_map" Relationship="MenuwrapModel.FK__Filter_ca__Filte__0D7A0286" FromRole="Filter" ToRole="Filter_cat_map" />
+    <NavigationProperty Name="FoodItems" Relationship="MenuwrapModel.FK__FoodItems__Filte__498EEC8D" FromRole="Filter" ToRole="FoodItem" />
   </EntityType>
   <EntityType Name="FoodItem">
     <Key>
@@ -175,6 +180,8 @@
     <NavigationProperty Name="comments" Relationship="MenuwrapModel.FK__comment__Item_Id__17036CC0" FromRole="FoodItem" ToRole="comment" />
     <NavigationProperty Name="cuisine" Relationship="MenuwrapModel.FK__FoodItem__Cusine__0B91BA14" FromRole="FoodItem" ToRole="cuisine" />
     <NavigationProperty Name="Res_food_map" Relationship="MenuwrapModel.FK__Res_food___Item___1332DBDC" FromRole="FoodItem" ToRole="Res_food_map" />
+    <Property Name="FilterId" Type="Int32" />
+    <NavigationProperty Name="Filter" Relationship="MenuwrapModel.FK__FoodItems__Filte__498EEC8D" FromRole="FoodItem" ToRole="Filter" />
   </EntityType>
   <EntityType Name="Location">
     <Key>
@@ -467,6 +474,18 @@
       </Principal>
       <Dependent Role="user">
         <PropertyRef Name="Role_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FoodItems__Filte__498EEC8D">
+    <End Type="MenuwrapModel.Filter" Role="Filter" Multiplicity="0..1" />
+    <End Type="MenuwrapModel.FoodItem" Role="FoodItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filter">
+        <PropertyRef Name="Filter_Id" />
+      </Principal>
+      <Dependent Role="FoodItem">
+        <PropertyRef Name="FilterId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

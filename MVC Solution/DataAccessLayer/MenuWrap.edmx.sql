@@ -733,5 +733,14 @@ insert into res_food_map values(7,6,150,null,null,0)
 insert into res_food_map values(7,8,150,null,null,0)
 insert into res_food_map values(7,7,95,null,null,0)
 insert into res_food_map values(7,14,160,null,null,0)
+-- --------------------------------------------------
+-- Insert Scripts has Ended
+-- --------------------------------------------------
 
-
+-- --------------------------------------------------
+-- Alter Scripts has started
+-- --------------------------------------------------
+ALTER TABLE FoodItems ADD FilterId INT REFERENCES Filters(Filter_Id)
+-- --------------------------------------------------
+-- Alter Scripts has started
+-- --------------------------------------------------
