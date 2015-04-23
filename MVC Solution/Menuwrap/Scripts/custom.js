@@ -32,7 +32,6 @@
                 data: { cuisineID: $(this).val() },
                 type: "POST",
             }).success(function (data) {
-                debugger;
                 if (data && data.length > 0) {
                     $.each(data, function (i, item) {
                         $('#SubCusineFilterDdl').append('<option value="' + item.Value + '">' + item.Text + '</option>');
@@ -57,7 +56,6 @@ function GetMenu(obj) {
     }).success(function (data) {
         $('#restraunt-menu-div').html(data);
         $('#restraunt-menu-div').slideDown('slow');
-        debugger;
         ReSizeHeight();
     }).error(function () {
         alert("Some Error Occured");
@@ -72,7 +70,6 @@ function ReSizeHeight() {
 function GetFilteredResult() {
     $('#FoodListPartialViewDiv').slideUp('fast');
     $('#restraunt-menu-div').hide();
-    debugger;
     var jsonData = $('#SearchFoodCat').serialize();
     jsonData += '&' + $('#CustomFilterForm').serialize();
     $.ajax({
