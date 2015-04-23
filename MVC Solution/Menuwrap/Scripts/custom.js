@@ -41,7 +41,7 @@
                 alert("Some Error Occured. Please try after some time");
             });
         } else {
-            $('#SubCusineFilterDdl').remove('option').not('option[Value=""]');
+            $('#SubCusineFilterDdl option').not('option[value=""]').remove();
         }
     });
 }
