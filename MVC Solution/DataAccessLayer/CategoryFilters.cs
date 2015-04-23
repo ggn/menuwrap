@@ -16,5 +16,7 @@ namespace DataAccessLayer
         public int SubCusineId { get; set; }
         public bool? isVeg { get; set; }
         public int maxCost { get; set; }
+        public List<Filter> filters { get; set; }
+        public List<cuisine> cuisines { get; set; }
     }
 }

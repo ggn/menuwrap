@@ -20,7 +20,8 @@ namespace ServiceLayer
         List<Restaurant> GetRestaurants(int? id);
         bool InsertRestraunt(Restaurant res);
         bool DeleteRestraunt(long resID);
-        List<Filter> GetFilters(long categoryID);
+        CategoryFilters GetFilters(long categoryID);
+        List<cuisine> GetSubCuisines(long cuisineID);
     }
 
     public class buisnessLogic : IbuisnessLogic
@@ -77,9 +78,14 @@ namespace ServiceLayer
             return repository.DeleteRestraunt(resID);
         }
 
-        public List<Filter> GetFilters(long categoryID)
+        public CategoryFilters GetFilters(long categoryID)
         {
             return repository.GetFilters(categoryID);
         }
+
+        public List<cuisine> GetSubCuisines(long cuisineID) {
+            return repository.GetSubCuisines(cuisineID);
+        }
+        
     }
 }

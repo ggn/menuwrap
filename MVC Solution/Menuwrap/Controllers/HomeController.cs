@@ -7,6 +7,7 @@ using DataAccessLayer;
 using ServiceLayer;
 using System.Web.Helpers;
 using System.Web.Script.Serialization;
+using Menuwrap.Models;
 
 namespace Menuwrap.Controllers
 {
@@ -75,8 +76,18 @@ namespace Menuwrap.Controllers
         public JsonResult GetFilter(long category_Id)
         {
             var retList = buisnessLogic.GetFilters(category_Id);
-            var filter = new SelectList(retList, "Filter_Id", "Filter_name");
-            return Json(filter, JsonRequestBehavior.AllowGet);
+            var filterSelectLists = new FilterViewModel();
+            filterSelectLists.Filters = new SelectList(retList.filters, "Filter_Id", "Filter_name");
+            filterSelectLists.Cuisines = new SelectList(retList.cuisines, "Cuisine_Id", "cuisine_name");
+            return Json(filterSelectLists, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GetSubCuisines(long cuisineID)
+        {
+            var retList = buisnessLogic.GetSubCuisines(cuisineID);
+            var cuisineSelectLists = new SelectList(retList, "Cuisine_Id", "cuisine_name");
+            return Json(cuisineSelectLists, JsonRequestBehavior.AllowGet);
         }
     }
 }

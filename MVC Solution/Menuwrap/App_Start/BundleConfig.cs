@@ -24,6 +24,9 @@ namespace Menuwrap
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/customjs").Include(
+                      "~/Scripts/custom.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/half-slider.css",
                       "~/Content/bootstrap.css",

@@ -115,79 +115,17 @@
 </body>
 </html>
 @Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/customjs")
 @Scripts.Render("~/bundles/bootstrap")
 <script type="text/javascript">
-    $('#loading-gif').hide();
-    $(document).bind("ajaxStart", function () {
-        $('#loading-gif').show();
-    }).bind("ajaxStop", function () {
+    $(document).ready(function () {
         $('#loading-gif').hide();
-    });
-    $('#citiesDdl').change(function () {
-        var selectedCity = $.trim($(this).val());
-        $('#searh-result-div').html("");
-        if (selectedCity != "") {
-            $('#locationDdl').html("<option value=''>Select Location</option>")
-            $.ajax({
-                url: $('#locationURL').val(),
-                data: { cityId: selectedCity },
-                type: "POST"
-            }).success(function (data) {
-                if (data) {
-                    $.each(JSON.parse(data), function (i, item) {
-                        $('#locationDdl').append("<option value='" + item.id + "'>" + item.name + "</option>")
-                        $('#locationDdl').removeAttr('disabled');
-                    });
-                }
-            }).error(function () {
-                alert("Some Error Occured");
-            });
-        } else {
-            $('#locationDdl').val('').attr('disabled', 'disabled');
-        }
-    });
-
-    $('#SearchFoodCat').submit(function (e) {
-        e.preventDefault();
-        $('#searh-result-div').hide();
-        $('#restraunt-menu-div').hide();
-        $.ajax({
-            url: $(this).attr('action'),
-            data: $(this).serialize(),
-            type: "POST",
-        }).success(function (data) {
-            $('#searh-result-div').html(data);
-            $('#searh-result-div').slideDown('slow');
-        }).error(function () {
-            alert("Some Error Occured");
+        $(document).bind("ajaxStart", function () {
+            $('#loading-gif').show();
+        }).bind("ajaxStop", function () {
+            $('#loading-gif').hide();
         });
+        InitiateLayoutPage();
     });
 </script>
 @RenderSection("scripts", required: false)
-<style>
-    #loading-gif {
-        height: 160px;
-        width: 160px;
-        border-radius: 80px;
-        margin: 0 auto;
-        display: table;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%);
-        -moz-transform: translate(-50%);
-        -o-transform: translate(-50%);
-        -ms-transform: translate(-50%);
-        transform: translate(-50%);
-        color: red;
-        font-size: 20px;
-        padding-top: 20px;
-        -webkit-box-shadow: 1px 2px 5px 5px rgba(50, 50, 50, 0.75);
-        -moz-box-shadow: 1px 2px 5px 5px rgba(50, 50, 50, 0.75);
-        box-shadow: 1px 2px 5px 5px rgba(50, 50, 50, 0.75);
-    }
-
-        #loading-gif img {
-            width: 85px;
-        }
-</style>

@@ -20,7 +20,8 @@ namespace Repository
         List<Restaurant> GetRestaurants(int? id);
         bool InsertRestraunt(Restaurant res);
         bool DeleteRestraunt(long resID);
-        List<Filter> GetFilters(long categoryID);
+        CategoryFilters GetFilters(long categoryID);
+        List<cuisine> GetSubCuisines(long cuisineID);
     }
 
     public class ModelRepository : IRepository
@@ -71,6 +72,12 @@ namespace Repository
                 res_map => res_map.res_map.Item_Id,
                 food => food.Item_Id,
                 (res_map, food) => new { res_map_detail = res_map, fooditem = food });
+
+            if (categoryFilter.maxCost <= 0)
+            {
+                a = a.GroupBy(x => x.res_map_detail.res.Restaurant_name).Select(x => x.FirstOrDefault());
+ 
+            }
 
             if (categoryFilter.isVeg.HasValue)
             {
@@ -206,9 +213,17 @@ namespace Repository
             }
         }
 
-        public List<Filter> GetFilters(long categoryID)
+        public CategoryFilters GetFilters(long categoryID)
         {
-            return menuwrapEntities.Filters.Include("Filter_cat_map").Where(x=>x.Filter_cat_map.Any(y=>y.category_Id==categoryID)).ToList();
+            var filterList = new CategoryFilters();
+            filterList.filters = menuwrapEntities.Filters.Include("Filter_cat_map").Where(x => x.Filter_cat_map.Any(y => y.category_Id == categoryID)).ToList();
+            filterList.cuisines = menuwrapEntities.cuisines.Where(x => !x.parent.HasValue).ToList();
+            return filterList;
+        }
+
+        public List<cuisine> GetSubCuisines(long cuisineID)
+        {
+            return menuwrapEntities.cuisines.Where(x => x.parent.HasValue && x.parent.Value == cuisineID).ToList();
         }
     }
 
