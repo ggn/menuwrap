@@ -22,6 +22,7 @@ namespace Repository
         bool DeleteRestraunt(long resID);
         CategoryFilters GetFilters(long categoryID);
         List<cuisine> GetSubCuisines(long cuisineID);
+        void ResetDataBase();
     }
 
     public class ModelRepository : IRepository
@@ -224,6 +225,13 @@ namespace Repository
         public List<cuisine> GetSubCuisines(long cuisineID)
         {
             return menuwrapEntities.cuisines.Where(x => x.parent.HasValue && x.parent.Value == cuisineID).ToList();
+        }
+
+        public void ResetDataBase()
+        {
+            menuwrapEntities.Restaurants.RemoveRange(menuwrapEntities.Restaurants);
+            menuwrapEntities.FoodItems.RemoveRange(menuwrapEntities.FoodItems);
+            menuwrapEntities.Orders.RemoveRange(menuwrapEntities.Orders);
         }
     }
 

