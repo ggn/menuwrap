@@ -23,6 +23,8 @@ namespace ServiceLayer
         CategoryFilters GetFilters(long categoryID);
         List<cuisine> GetSubCuisines(long cuisineID);
         void ResetDataBase();
+        user TryRegisterUser(user userObj);
+        bool UpdateContact(user userObj);
     }
 
     public class buisnessLogic : IbuisnessLogic
@@ -91,6 +93,16 @@ namespace ServiceLayer
         public void ResetDataBase()
         {
             repository.ResetDataBase();
+        }
+
+        public user TryRegisterUser(user userObj)
+        {
+            return repository.TryRegisterUser(userObj);
+        }
+
+        public bool UpdateContact(user userObj)
+        {
+            return repository.UpdateContact(userObj);
         }
     }
 }

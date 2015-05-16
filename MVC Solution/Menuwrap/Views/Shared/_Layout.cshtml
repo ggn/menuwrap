@@ -66,6 +66,8 @@
                         Wrapping up happiness for you.
                     </p>
                     <b>Developed by GGN : 7718855080</b>
+                    <br />
+                    <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
                 </div>
                 <div class="col-md-5">
                     <h3>Latest News</h3>
@@ -80,12 +82,11 @@
                     </div>
                 </div>
                 <div class="col-md-3 text-right">
-                    <h3>Newsletter</h3>
-                    <form>
-                        <input id="emailid" type="text" class="text" placeholder="Enter your Email">
-                        <input type="submit" onclick="if ($.trim($('#emailid').val())!=''){ alert('Sending mail to ' + $('#emailid').val()); }" value="Send">
-                        <div class="clearfix"></div>
-                    </form>
+                    <h3>Login With Facebook</h3>
+                    <div id="AuthenticationDiv" style="color:white">
+                        <div id="FbloginButton"> <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button></div>
+                        <span id="status"></span>
+                    </div>
                     <div class="social-icons">
                         <br />
                         <a href="#">Best Viewed in Google chrome</a>
@@ -108,6 +109,8 @@
     </footer>
     <input type="hidden" id="locationURL" value="@Url.Action("SearchLocation", "Home")" />
     <input type="hidden" id="foodCategoryURL" value="@Url.Action("foodCategory", "Home")" />
+    <input type="hidden" id="registerUserURL" value="@Url.Action("TryRegisterUser", "Account")" />
+    <input type="hidden" id="UpdateContactURL" value="@Url.Action("UpdateContact", "Account")" / />
     <div id="loading-gif" class="text-center">
         <img src="~/Content/images/ajaxloading.gif" />
         <br />
@@ -130,3 +133,4 @@
     });
 </script>
 @RenderSection("scripts", required: false)
+

@@ -23,6 +23,8 @@ namespace Repository
         CategoryFilters GetFilters(long categoryID);
         List<cuisine> GetSubCuisines(long cuisineID);
         void ResetDataBase();
+        user TryRegisterUser(user userObj);
+        bool UpdateContact(user userObj);
     }
 
     public class ModelRepository : IRepository
@@ -232,6 +234,30 @@ namespace Repository
             menuwrapEntities.Restaurants.RemoveRange(menuwrapEntities.Restaurants);
             menuwrapEntities.FoodItems.RemoveRange(menuwrapEntities.FoodItems);
             menuwrapEntities.Orders.RemoveRange(menuwrapEntities.Orders);
+        }
+
+        public user TryRegisterUser(user userObj)
+        {
+            var temp = menuwrapEntities.users.Where(x => x.Email_Id == userObj.Email_Id).ToList();
+            if(temp != null && temp.Count() > 0)
+            {
+                return temp.FirstOrDefault();
+            }
+            menuwrapEntities.users.Add(userObj);
+            menuwrapEntities.SaveChanges();
+            return userObj;
+        }
+
+        public bool UpdateContact(user userObj)
+        {
+            if (userObj.UserId > 0)
+            {
+                var temp = menuwrapEntities.users.Where(x => x.UserId == userObj.UserId).FirstOrDefault();
+                temp.Contact = userObj.Contact;
+                menuwrapEntities.SaveChanges();
+                return true;
+            }
+            return false;
         }
     }
 
