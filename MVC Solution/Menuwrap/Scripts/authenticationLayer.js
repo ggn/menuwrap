@@ -81,13 +81,13 @@ function RegisterUser(user) {
         StartUserSession(data);
         console.log('Checking user contact details for: ' + data.name);
         if ($.trim(data.contact) == "") {
-            var contact = prompt(data.name + " please enter your contact number", "10 digit number");
+            var contact = prompt(data.name + " please provide your contact number to participate in our lucky draw.", "10 digit number");
             if (contact != null) {
                 data.contact = contact;
                 ajaxUrl = $.trim($('#UpdateContactURL').val());
                 AjaxCall(ajaxUrl, data, "POST").success(function (result) {
                     if (result) {
-                        alert("Contact saved successfully");
+                        alert("Lucky draw takes place on Last friday of every month. Results will be notified to you in the registered mobile number.");
                     }
                 });
             }

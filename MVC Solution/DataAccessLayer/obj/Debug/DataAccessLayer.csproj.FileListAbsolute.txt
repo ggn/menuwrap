@@ -26,3 +26,4 @@ C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\Entity
 C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\bin\Debug\EntityFramework.SqlServer.xml
 C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Spidy\Offical\MenuWrap\menuwrap\MVC Solution\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
