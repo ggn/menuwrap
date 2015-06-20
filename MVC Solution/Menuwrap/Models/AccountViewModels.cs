@@ -19,5 +19,7 @@ namespace Menuwrap.Models
         public string verified { get; set; }
         public int userID { get; set; }
         public string contact { get; set; }
+        public string ExpiresIn { get; set; }
+        public string AccessToken { get; set; }
     }
 }

@@ -1,17 +1,9 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
+﻿using DataAccessLayer;
 using Menuwrap.Models;
-using System.Net.Mail;
+using System;
 using System.Configuration;
-using DataAccessLayer;
+using System.Web.Mvc;
+using Menuwrap.Helper;
 
 namespace Menuwrap.Controllers
 {
@@ -37,6 +29,8 @@ namespace Menuwrap.Controllers
             tempUser = buisnessLogic.TryRegisterUser(tempUser);
             userObj.userID = tempUser.UserId;
             userObj.contact = tempUser.Contact;
+            userObj.ExpiresIn = DateTime.Now.AddDays(Convert.ToInt32(ConfigurationManager.AppSettings["TokenExpiryInDays"])).ToShortDateString();
+            userObj.AccessToken = new AesCryptographer().EncryptText(string.Format("{0},{1},{2},{3}",userObj.userID,userObj.name,userObj.email,userObj.contact));
             return Json(userObj);
         }
 
@@ -50,5 +44,7 @@ namespace Menuwrap.Controllers
             };
             return buisnessLogic.UpdateContact(tempUser);
         }
+
+        
     }
 }

@@ -53,13 +53,13 @@ function UserLoggedIn() {
         if (response.hasOwnProperty('first_name')) {
             $('#status').html('Welcome, <b>' + response.first_name + '</b> ! <u><a href="#" onclick="UserLogOut();">Logout</a></u>');
         }
-
         var userDetails = {};
     });
 }
 
 function UserLogOut() {
     FB.logout(function (response) {
+        ClearUserSession();
         statusChangeCallback(response);
     });
 }
@@ -68,8 +68,8 @@ function StartUserSession(user) {
     window.localStorage.setItem("UserSession", JSON.stringify(user));
 }
 
-function GetUserSession(user) {
-    return JSON.parse(user);
+function GetUserSession() {
+    return JSON.parse(window.localStorage.getItem("UserSession"));
 }
 function ClearUserSession() {
     window.localStorage.clear();
@@ -78,6 +78,7 @@ function ClearUserSession() {
 function RegisterUser(user) {
     var ajaxUrl = $.trim($('#registerUserURL').val());
     AjaxCall(ajaxUrl, user, "POST").success(function (data) {
+        StartUserSession(data);
         console.log('Checking user contact details for: ' + data.name);
         if ($.trim(data.contact) == "") {
             var contact = prompt(data.name + " please enter your contact number", "10 digit number");
@@ -95,7 +96,18 @@ function RegisterUser(user) {
     });
 }
 
-function AjaxCall(ajaxUrl, jsondata, ajaxType) {
+function AjaxCall(ajaxUrl, jsondata, ajaxType, requriesValidation) {
+    debugger;
+    var user = GetUserSession();
+    if (requriesValidation)
+    {
+        if (!user || !user.ExpiresIn)
+        {
+            alert("Please login with facebook using the button below");
+            scrollTo('AuthenticationDiv');
+            return false;
+        }
+    }
     var ajaxCaller = $.ajax({
         url: ajaxUrl,
         data: jsondata,
@@ -104,3 +116,16 @@ function AjaxCall(ajaxUrl, jsondata, ajaxType) {
     });
     return ajaxCaller;
 }
+
+function scrollTo(id) {
+    // Remove "link" from the ID
+    id = id.replace("link", "");
+    // Scroll
+    $('html,body').animate({
+        scrollTop: $("#" + id).offset().top
+    },
+        'slow');
+}
+
+
+

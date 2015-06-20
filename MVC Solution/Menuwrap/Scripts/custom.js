@@ -72,16 +72,17 @@ function GetFilteredResult() {
     $('#restraunt-menu-div').hide();
     var jsonData = $('#SearchFoodCat').serialize();
     jsonData += '&' + $('#CustomFilterForm').serialize();
-    $.ajax({
-        url: $('#SearchFoodCat').attr('action'),
-        data: jsonData,
-        type: "POST",
-    }).success(function (data) {
-        $('#FoodListPartialViewDiv').html(data);
-        $('#FoodListPartialViewDiv').slideDown('slow');
-    }).error(function () {
-        alert("Some Error Occured");
-    });
+
+    AjaxCall($('#SearchFoodCat').attr('action'), jsonData, "POST", true)
+        .success(function (result) {
+            if (result) {
+                $('#FoodListPartialViewDiv').html(result);
+                $('#FoodListPartialViewDiv').slideDown('slow')
+            }
+        })
+        .error(function () {
+            alert("Some Error Occured");
+        });
 }
 
 function InitiateLayoutPage() {
@@ -113,15 +114,16 @@ function InitiateLayoutPage() {
         e.preventDefault();
         $('#searh-result-div').hide();
         $('#restraunt-menu-div').hide();
-        $.ajax({
-            url: $(this).attr('action'),
-            data: $(this).serialize(),
-            type: "POST",
-        }).success(function (data) {
-            $('#searh-result-div').html(data);
-            $('#searh-result-div').slideDown('slow');
-        }).error(function () {
-            alert("Some Error Occured");
-        });
+
+        AjaxCall($(this).attr('action'), $(this).serialize(), "POST", true)
+       .success(function (result) {
+           if (result) {
+               $('#searh-result-div').html(result);
+               $('#searh-result-div').slideDown('slow');
+           }
+       })
+       .error(function () {
+           alert("Some Error Occured");
+       });
     });
 }
